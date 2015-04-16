@@ -5,9 +5,9 @@ package beans;
  */
 public class Person
 {
-    String vorname;
-    String nachname;
-    Adresse adresse;
+    private String vorname;
+    private String nachname;
+    private Adresse adresse;
 
     public Person(String vorname, String nachname, Adresse adresse) {
         this.vorname = vorname;

@@ -3,13 +3,14 @@ package beans;
 /**
  * Created by Dominik on 16.04.2015.
  */
-public class Member extends Person {
-    String EMail;
-    String password;
+public class Member extends Person
+{
+    private String email;
+    private String passwort;
 
-    public Member(String vorname, String nachname, Adresse adresse, String EMail, String password) {
+    public Member(String vorname, String nachname, Adresse adresse, String email, String passwort) {
         super(vorname, nachname, adresse);
-        this.EMail = EMail;
-        this.password = password;
+        this.email = email;
+        this.passwort = passwort;
     }
 }
