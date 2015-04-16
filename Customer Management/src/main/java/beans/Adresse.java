@@ -15,4 +15,28 @@ public class Adresse
         this.plz = plz;
         this.ort = ort;
     }
+
+    public String getOrt() {
+        return ort;
+    }
+
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
+
+    public String getPlz() {
+        return plz;
+    }
+
+    public void setPlz(String plz) {
+        this.plz = plz;
+    }
+
+    public String getStraße() {
+        return straße;
+    }
+
+    public void setStraße(String straße) {
+        this.straße = straße;
+    }
 }
