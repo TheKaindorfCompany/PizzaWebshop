@@ -9,5 +9,10 @@ public class Adresse
     private String plz;
     private String ort;
 
-
+    public Adresse(String straße, String plz, String ort)
+    {
+        this.straße = straße;
+        this.plz = plz;
+        this.ort = ort;
+    }
 }
