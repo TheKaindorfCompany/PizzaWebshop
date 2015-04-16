@@ -1,5 +1,5 @@
 public class Ingredient {
-    Name, Wieviel Stück, Link zum Bild, Preis pro Stück
+   // Name, Wieviel Stück, Link zum Bild, Preis pro Stück
     private String name;
     private String stk;
     private String picture;
