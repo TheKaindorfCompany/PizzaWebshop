@@ -6,21 +6,21 @@ package beans;
 public class Newsletter {
 
     private String name;
-    private String restaurantname;
+    private Restaurant restaurant;
     private String text;
 
-    public Newsletter(String name, String restaurantname, String text) {
+    public Newsletter(String name, Restaurant restaurant, String text) {
         this.name = name;
-        this.restaurantname = restaurantname;
+        this.restaurant = restaurant;
         this.text = text;
     }
 
-    public String getRestaurantname() {
-        return restaurantname;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
     public void setRestaurantname(String restaurantname) {
-        this.restaurantname = restaurantname;
+        this.restaurant = restaurant;
     }
 
     public String getText() {

@@ -24,7 +24,14 @@ public class RestaurantOwner extends Member
     public Newsletter createNewsletter(String text, String newsletterName)
     {
         Newsletter news;
-        news = new Newsletter(newsletterName, "leerstring",text);
+        news = new Newsletter(newsletterName, restaurants.element(),text);
         return news;
+    }
+
+    public Discount createDiscount(Double discount)
+    {
+        Discount discountObj;
+        discountObj = new Discount(restaurants.element(), this,discount);
+        return discountObj;
     }
 }
