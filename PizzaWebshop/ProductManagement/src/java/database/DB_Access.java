@@ -38,7 +38,7 @@ public class DB_Access {
             String picture = rs.getString("picture");
             String name = rs.getString("name");
             float price = rs.getFloat("price");
-            String stk = rs.getString("stk");
+            int stk = rs.getInt("stk");
             ingredients.add(new Ingredient(picture, name, price, stk));
         }
         connPool.releaseConnection(conn);

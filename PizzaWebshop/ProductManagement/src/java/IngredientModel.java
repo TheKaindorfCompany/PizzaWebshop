@@ -12,7 +12,7 @@ public class IngredientModel {
     }
 
 
-    public void addIngredient(String picture,String name, String stk, float price)
+    public void addIngredient(String picture,String name, int stk, float price)
     {
         Ingredient ingredient=new Ingredient(picture,name,price,stk);
 

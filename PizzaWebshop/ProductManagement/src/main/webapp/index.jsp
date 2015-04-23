@@ -3,7 +3,9 @@
 <head lang="en">
     <title>Product Managment</title>
     <meta charset="UTF-8">
-    <title></title>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <title>Product Managment</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -13,6 +15,24 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script>
+        //function that takes the ingredients list
+        function getIngredients() {
+            var url = "";
+            $.get(url, function(dat, status) {
+                $('#tableProductList').data(dat);
+            });
+        }
+
+        function addNewProduct() {
+            var name = document.getElementById("prodName").value();
+            var prize = document.getElementById("prodPrice").value();
+            var amount = document.getElementById("prodAmount").value();
+
+        }
+
+    </script>
 </head>
 <body>
 <ul class="nav nav-tabs">
@@ -35,8 +55,46 @@
                     </div>
                 </div>
             </td>
+            <td>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collAddProd" aria-expanded="false" aria-controls="collapseExample">
+                    Add Ingredient
+                </button>
+            </td>
         </tr>
     </table>
+
+    <div class="collapse" id="collAddProd">
+        <div class="well">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <label>Name of Product</label>
+                        <input type="text" class="form-control" aria-label="" placeholder="Productname" id="prodName">
+                    </div>
+                    <div class="input-group">
+                        <label>Price of Product</label>
+                        <input type="text" class="form-control" aria-label="" placeholder="Productname" id="prodPrice">
+                    </div>
+                    <div class="input-group">
+                        <label>Amount of Product</label>
+                        <input type="text" class="form-control" aria-label="" placeholder="Productname" id="prodAmount">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <button id="btnAdd" class="btn btn-primary" onclick="addNewProduct()">Add</button>
+                            <button id="btnCancel" class="btn btn-primary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="tableProductList">
+
+    </table>
+
 
 
 </div>
