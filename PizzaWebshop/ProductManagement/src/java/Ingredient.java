@@ -50,4 +50,10 @@ public class Ingredient {
     public void setStk(String stk) {
         this.stk = stk;
     }
+
+    @Override
+    public String toString() {
+        return "<tr><td>" + this.name + "</td><td>" + this.price + "</td><td>"
+                + this.stk + "</td></tr>";
+    }
 }
