@@ -8,11 +8,11 @@ package java;
 public class Ingredient {
    // Name, Wieviel Stück, Link zum Bild, Preis pro Stück
     private String name;
-    private String stk;
+    private int stk;
     private String picture;
     private float price;
 
-    public Ingredient(String picture, String name, float price, String stk) {
+    public Ingredient(String picture, String name, float price, int stk) {
         this.picture = picture;
         this.name = name;
         this.price = price;
@@ -43,11 +43,11 @@ public class Ingredient {
         this.price = price;
     }
 
-    public String getStk() {
+    public int getStk() {
         return stk;
     }
 
-    public void setStk(String stk) {
+    public void setStk(int stk) {
         this.stk = stk;
     }
 
