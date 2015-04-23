@@ -19,6 +19,6 @@ public class IngredientModelTest {
 
     @Test
     public void testSearch() throws Exception {
-
+        System.out.println("test");
     }
 }
