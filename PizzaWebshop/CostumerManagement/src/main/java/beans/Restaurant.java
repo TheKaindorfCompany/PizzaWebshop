@@ -16,4 +16,6 @@ public class Restaurant extends Adresse
         this.laengengrad = laengengrad;
         this.breitengrad = breitengrad;
     }
+
+
 }

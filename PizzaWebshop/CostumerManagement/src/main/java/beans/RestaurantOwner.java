@@ -9,9 +9,22 @@ public class RestaurantOwner extends Member
 {
     private LinkedList<Restaurant> restaurants;
 
+    String vorname;
+    String nachname;
+    Adresse adresse;
+    String email;
+    String passwort;
+
     public RestaurantOwner(String vorname, String nachname, Adresse adresse, String email, String passwort)
     {
         super(vorname, nachname, adresse, email, passwort);
         restaurants = new LinkedList<Restaurant>();
+    }
+
+    public Newsletter createNewsletter(String text, String newsletterName)
+    {
+        Newsletter news;
+        news = new Newsletter(newsletterName, "leerstring",text);
+        return news;
     }
 }
