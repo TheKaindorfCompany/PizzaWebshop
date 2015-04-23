@@ -5,30 +5,11 @@ package beans;
  */
 public class Discount {
 
-    private Restaurant restaurant;
-    private RestaurantOwner owner;
     private double discount;
 
-    public Discount(Restaurant restaurant, RestaurantOwner owner, double discount) {
-        this.restaurant = restaurant;
-        this.owner = owner;
+    public Discount(double discount) {
+
         this.discount = discount;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public RestaurantOwner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(RestaurantOwner owner) {
-        this.owner = owner;
     }
 
     public double getDiscount() {

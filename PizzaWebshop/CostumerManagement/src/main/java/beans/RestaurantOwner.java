@@ -5,33 +5,17 @@ import java.util.LinkedList;
 /**
  * Created by Enis Lushtaku on 16.04.2015.
  */
-public class RestaurantOwner extends Member
+public class RestaurantOwner extends Person
 {
+    private String email;
+    private String passwort;
     private LinkedList<Restaurant> restaurants;
 
-    String vorname;
-    String nachname;
-    Adresse adresse;
-    String email;
-    String passwort;
-
-    public RestaurantOwner(String vorname, String nachname, Adresse adresse, String email, String passwort)
+    public RestaurantOwner(String vorname, String nachname, Adresse adresse, String email, String passwort, LinkedList<Restaurant> restaurants)
     {
-        super(vorname, nachname, adresse, email, passwort);
-        restaurants = new LinkedList<Restaurant>();
-    }
-
-    public Newsletter createNewsletter(String text, String newsletterName)
-    {
-        Newsletter news;
-        news = new Newsletter(newsletterName, restaurants.element(),text);
-        return news;
-    }
-
-    public Discount createDiscount(Double discount)
-    {
-        Discount discountObj;
-        discountObj = new Discount(restaurants.element(), this,discount);
-        return discountObj;
+        super(vorname, nachname, adresse);
+        this.email = email;
+        this.passwort = passwort;
+        this.restaurants = restaurants;
     }
 }
