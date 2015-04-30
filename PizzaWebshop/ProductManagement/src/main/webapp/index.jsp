@@ -73,11 +73,11 @@
                     </div>
                     <div class="input-group">
                         <label>Price of Product</label>
-                        <input type="text" class="form-control" aria-label="" placeholder="Productname" id="prodPrice">
+                        <input type="text" class="form-control" aria-label="" placeholder="Price" id="prodPrice">
                     </div>
                     <div class="input-group">
                         <label>Amount of Product</label>
-                        <input type="text" class="form-control" aria-label="" placeholder="Productname" id="prodAmount">
+                        <input type="text" class="form-control" aria-label="" placeholder="Amount" id="prodAmount">
                     </div>
 
                     <div class="row">

@@ -4,8 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
         <servlet-name>IngredientServlet</servlet-name>
-        <servlet-class>java.servlet.IngredientServlet</servlet-class>
+        <servlet-class>servlet.IngredientServlet</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>IngredientServlet</servlet-name>
+        <url-pattern>/IngredientServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
+
+

@@ -1,6 +1,6 @@
-package java.database;
+package database;
 
-import java.Ingredient;
+import bl.Ingredient;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;

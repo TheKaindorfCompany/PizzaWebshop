@@ -1,4 +1,4 @@
-package java.database;
+package database;
 
 /**
  * Created by Juergen on 23.04.2015.
