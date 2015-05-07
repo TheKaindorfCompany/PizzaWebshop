@@ -1,4 +1,4 @@
-package java.bl;
+package bl;
 
 /**
  * Created by Veronika on 07.05.2015.

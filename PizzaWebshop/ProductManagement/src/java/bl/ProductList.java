@@ -11,6 +11,11 @@ public class ProductList {
 
     }
 
+    public Ingredient getCurrentIngreident(int index)
+    {
+        return ingredientsList.get(index);
+    }
+
 
     public void addIngredient(String picture,String name, int stk, float price)
     {
