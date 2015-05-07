@@ -17,6 +17,7 @@ public class IngredientModel {
         this.restName=restName;
         try {
              dba = DB_Access.getInstance();
+            this.ingredientList = new LinkedList<Ingredient>();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -31,6 +32,28 @@ public class IngredientModel {
 
 
 
+    }
+
+
+    public Ingredient getCurrentIngreident(int index)
+    {
+        return ingredientList.get(index);
+    }
+
+
+    public void addIngredient(String picture,String name, int stk, float price)
+    {
+        Ingredient ingredient=new Ingredient(picture,name,price,stk);
+
+        if(!ingredientList.contains(ingredient))
+        {
+            ingredientList.add(ingredient);
+        }
+
+    }
+
+    public int countElements() {
+        return this.ingredientList.size();
     }
 
 
