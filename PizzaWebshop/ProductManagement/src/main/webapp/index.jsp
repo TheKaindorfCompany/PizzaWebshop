@@ -45,7 +45,7 @@
     <table border="0">
         <tr>
             <td>
-                <button class="btn">Show Products</button>
+                <button class="btn" onclick="getIngredients()">Show Ingredients</button>
             </td>
             <td>
                 <div class="input-group">
