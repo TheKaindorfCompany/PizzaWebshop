@@ -9,11 +9,21 @@ public class Product {
     private LinkedList<Ingredient> list;
     private float price;
     private String name;
+    private String productId;
 
-    public Product(LinkedList<Ingredient> list, float price, String name) {
+    public Product(LinkedList<Ingredient> list, float price, String name, String productId) {
         this.list = list;
         this.price = price;
         this.name=name;
+        this.productId= productId;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getName() {
