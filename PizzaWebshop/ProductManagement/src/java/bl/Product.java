@@ -8,10 +8,20 @@ import java.util.LinkedList;
 public class Product {
     private LinkedList<Ingredient> list;
     private float price;
+    private String name;
 
-    public Product(LinkedList<Ingredient> list, float price) {
+    public Product(LinkedList<Ingredient> list, float price, String name) {
         this.list = list;
         this.price = price;
+        this.name=name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void calcPrice()
