@@ -56,4 +56,10 @@ public class Ingredient {
         return "<tr><td>" + this.name + "</td><td>" + this.price + "</td><td>"
                 + this.stk + "</td></tr>";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Ingredient ing = (Ingredient)o;
+        return ing.name==this.name;
+    }
 }

@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class IngredientModel {
     private DB_Access dba;
     private LinkedList<Ingredient> ingredientList;
-    public IngredientModel(String restName)
+    public IngredientModel()
     {
         try {
             dba = DB_Access.getInstance();
@@ -29,7 +29,7 @@ public class IngredientModel {
     }
 
 
-    public Ingredient getCurrentIngreident(int index)
+    public Ingredient getCurrentIngridient(int index)
     {
         return ingredientList.get(index);
     }

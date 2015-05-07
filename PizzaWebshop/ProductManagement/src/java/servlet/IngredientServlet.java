@@ -1,6 +1,6 @@
 package servlet;
 
-import bl.ProductList;
+import bl.IngredientModel;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,11 +10,11 @@ import java.io.PrintWriter;
  */
 public class IngredientServlet extends javax.servlet.http.HttpServlet {
 
-    private ProductList m_ProdList;
+    private IngredientModel m_IngredientList;
 
     public void init() {
-        this.m_ProdList = new ProductList();
-        this.m_ProdList.addIngredient("", "Test", 12, 12);
+        this.m_IngredientList = new IngredientModel();
+        this.m_IngredientList.addIngredient("", "Test", 12, 12);
     }
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
@@ -35,15 +35,15 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
             String name = request.getParameter("name");
             float price = Float.parseFloat(request.getParameter("price"));
             int amount = Integer.parseInt(request.getParameter("amount"));
-            this.m_ProdList.addIngredient("", name, amount,price);
+            this.m_IngredientList.addIngredient("", name, amount, price);
             this.onGetIngredients(out);
         }
     }
 
     private void onGetIngredients(PrintWriter out) {
         String output = "<tr><th>Name</th><th>Price</th><th>Amount</th></tr>";
-        for (int i = 0; i < this.m_ProdList.countElements(); i++) {
-            output += this.m_ProdList.getCurrentIngreident(i);
+        for (int i = 0; i < this.m_IngredientList.countElements(); i++) {
+            output += this.m_IngredientList.getCurrentIngridient(i);
         }
         out.write(output);
     }
