@@ -28,6 +28,10 @@ public class ProductList {
 
     }
 
+    public int countElements() {
+        return this.ingredientsList.size();
+    }
+
     public void deleteIngredient(Ingredient ingredient) {
         ingredientsList.remove(ingredient);
     }

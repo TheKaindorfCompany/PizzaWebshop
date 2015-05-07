@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <table id="tableProductList">
+    <table id="tableProductList" class="table">
 
     </table>
 
