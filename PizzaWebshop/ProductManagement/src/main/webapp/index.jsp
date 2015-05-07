@@ -19,17 +19,22 @@
     <script>
         //function that takes the ingredients list
         function getIngredients() {
-            var url = "IngredientServlet";
+            var url = "IngredientServlet?art=1";
             $.get(url, function(dat, status) {
                 $('#tableProductList').html(dat);
             });
         }
 
         function addNewProduct() {
-            var name = document.getElementById("prodName").value();
-            var prize = document.getElementById("prodPrice").value();
-            var amount = document.getElementById("prodAmount").value();
+            var name = document.getElementById("prodName").value;
+            var prize = document.getElementById("prodPrice").value;
+            var amount = document.getElementById("prodAmount").value;
 
+            var url = "IngredientServlet?art=2&name="+name+"&price="+prize+"&amount="+amount;
+
+            $.get(url, function(dat, status) {
+                $('#tableProductList').html(dat);
+            });
         }
 
     </script>
