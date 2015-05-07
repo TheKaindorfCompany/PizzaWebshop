@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Created by Veronika on 23.04.2015.
  */
-public class IngredientModelTest {
+public class ProductListTest {
 
     @Test
     public void testGetInstance() throws Exception {

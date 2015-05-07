@@ -19,9 +19,9 @@
     <script>
         //function that takes the ingredients list
         function getIngredients() {
-            var url = "";
+            var url = "IngredientServlet";
             $.get(url, function(dat, status) {
-                $('#tableProductList').data(dat);
+                $('#tableProductList').html(dat);
             });
         }
 
@@ -34,7 +34,7 @@
 
     </script>
 </head>
-<body>
+<body onload="getIngredients()">
 <ul class="nav nav-tabs">
     <li role="presentation"><a href="#">Home</a></li>
     <li role="presentation" class="active"><a href="#">Product Managment</a></li>
