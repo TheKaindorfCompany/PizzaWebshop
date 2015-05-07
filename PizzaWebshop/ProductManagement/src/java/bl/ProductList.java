@@ -3,11 +3,11 @@ import java.util.LinkedList;
 /**
  * Created by Julian on 23.04.2015.
  */
-public class IngredientModel {
+public class ProductList {
 
     private LinkedList<Ingredient> ingredientsList = new LinkedList<Ingredient>();
 
-    public IngredientModel(){
+    public ProductList(){
 
     }
 
