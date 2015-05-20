@@ -33,6 +33,7 @@
 
             <div class="col-md-6">
                 <label for="address">Address</label>
+
                 <div class="row">
                     <div class="col-md-6">
                         <address id="address">
@@ -60,7 +61,29 @@
                 </select>
             </div>
         </div>
+
         <div id="map-canvas"></div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!-- TODO: add restaurant name to title -->
+                <h3 class="panel-title">Products</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/350x200" />
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                <p>Price <span class="badge">12,-</span> <a href="#" class="btn btn-default" role="button" style="float: right"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 </body>
