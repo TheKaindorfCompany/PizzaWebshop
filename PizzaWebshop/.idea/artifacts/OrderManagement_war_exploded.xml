@@ -7,6 +7,9 @@
           <element id="module-output" name="OrderManagement" />
         </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/OrderManagement/target/OrderArtifact/META-INF/MANIFEST.MF" />
+      </element>
       <element id="javaee-facet-resources" facet="OrderManagement/web/Web" />
     </root>
   </artifact>
