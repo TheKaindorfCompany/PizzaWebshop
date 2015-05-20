@@ -111,6 +111,7 @@
                                 </a>
                             </div>
                             <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
                                 <h4 class="media-heading">Bread Zeppelin</h4>
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
@@ -118,7 +119,7 @@
                             </div>
                         </div>
                         <hr/>
-                        <div class="well">The estimated delivery time is <span class="badge">12 minutes</span>.</div>
+                        <div class="well">The estimated delivery time from "Bread Zeppelin" to your location is <span class="badge">12 minutes</span>.</div>
                     </div>
                 </div>
             </div>
