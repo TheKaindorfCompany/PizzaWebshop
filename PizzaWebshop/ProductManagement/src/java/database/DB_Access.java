@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
+import bl.Product;
 
 /**
  * Created by Juergen on 23.04.2015.
@@ -29,8 +30,16 @@ public class DB_Access {
     public LinkedList<Ingredient> getIngredients(String restaurantName) throws Exception {
         Connection conn = connPool.getConnection();
         Statement stat = conn.createStatement();
-
         String sqlString = "";
+        if(restaurantName.isEmpty())
+        {
+            sqlString = "SELECT picture, name, price, stk FROM Ingredients;";
+        }
+
+        else{
+
+        }
+
 
         ResultSet rs = stat.executeQuery(sqlString);
         LinkedList<Ingredient> ingredients = new LinkedList<Ingredient>();
@@ -44,6 +53,19 @@ public class DB_Access {
         connPool.releaseConnection(conn);
         return ingredients;
     }
+
+    public void insertIngredient(Ingredient ingredient) throws Exception {
+        Connection conn = connPool.getConnection();
+        Statement stat = conn.createStatement();
+        String sqlString = "INSERT INTO ingredient VALUES ("+"'"+ingredient.getPicture()+"', '"+ingredient.getName()+", "+ingredient.getPrice()+", "+ingredient.getStk()+");";
+
+        int success = stat.executeUpdate(sqlString);
+
+        connPool.releaseConnection(conn);
+    }
+
+
+
 
 
 }
