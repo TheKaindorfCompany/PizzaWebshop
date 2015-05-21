@@ -18,10 +18,87 @@
     <!-- Custom Map Js -->
     <script type="text/javascript" src="resources/map.js"></script>
 
+    <!--Google Distance Matrix-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
     <!-- Custom Css -->
     <link rel="stylesheet" href="resources/map.css"/>
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+
+    <!-- calculate distance-->
+    <script type="text/javascript">
+        function calcDistance(origin, destination, outputDest) {
+
+            var x, y;
+            origin = origin.split(';');
+            x = parseFloat(origin[0]);
+            y = parseFloat(origin[1]);
+            var service = new google.maps.DistanceMatrixService();
+            origin = new google.maps.LatLng(x, y),
+            service.getDistanceMatrix(
+                    {
+                        origins: [origin],
+                        destinations: [destination],
+                        travelMode: google.maps.TravelMode.DRIVING,
+                        avoidHighways: false,
+                        avoidTolls: false
+                    },
+                    callback
+            );
+
+            function callback(response, status) {
+                if (status == "OK") {
+                    console.log("hallo");
+                    outputDest.innerHTML = response.rows[0].elements[0].distance.text;
+                } else {
+                    alert("Error: " + status);
+                }
+            }
+        }
+
+        function calcDuration(origin, destination, outputTime) {
+
+            var x, y;
+            origin = origin.split(';');
+            x = parseFloat(origin[0]);
+            y = parseFloat(origin[1]);
+            var service = new google.maps.DistanceMatrixService();
+            origin = new google.maps.LatLng(x, y),
+                    service.getDistanceMatrix(
+                            {
+                                origins: [origin],
+                                destinations: [destination],
+                                travelMode: google.maps.TravelMode.DRIVING,
+                                avoidHighways: false,
+                                avoidTolls: false
+                            },
+                            callback
+                    );
+
+            function callback(response, status) {
+                if (status == "OK") {
+                    console.log("hallo");
+                    outputTime.html(response.rows[0].elements[0].duration.text);
+                } else {
+                    alert("Error: " + status);
+                }
+            }
+        }
+
+        $(function () {
+            $(".distances li .badge ").each(function () {
+                console.log($(".duration")  );
+                calcDistance($(this).attr("data-coords"), "Leibnitz, Austria", this);
+            });
+            calcDuration($(".distances li.active .badge").attr("data-coords"), "Leibnitz, Austria", $(".duration"));
+            $(".distances li ").click(function(){
+                $(".distances li ").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -76,29 +153,29 @@
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <!-- TODO: calculate automatically via distance api -->
-                        <ul class="list-group">
+                        <ul class="list-group distances">
                             <li class="list-group-item active">
-                                <span class="badge">3 km</span>
+                                <span class="badge" data-coords="47.04;15.27">3 km</span>
                                 Bread Zeppelin
                             </li>
                             <li class="list-group-item">
-                                <span class="badge">14 km</span>
+                                <span class="badge" data-coords="48.04;15.27">14 km</span>
                                 Pita Pan
                             </li>
                             <li class="list-group-item">
-                                <span class="badge">11 km</span>
+                                <span class="badge" data-coords="49.04;15.27">11 km</span>
                                 Thai Tanic
                             </li>
                             <li class="list-group-item">
-                                <span class="badge">22 km</span>
+                                <span class="badge" data-coords="50.04;15.27">22 km</span>
                                 Lord of the Wings
                             </li>
                             <li class="list-group-item">
-                                <span class="badge">17 km</span>
+                                <span class="badge" data-coords="51.04;15.27">17 km</span>
                                 Wok this Way
                             </li>
                             <li class="list-group-item">
-                                <span class="badge">14 km</span>
+                                <span class="badge" data-coords="52.04;15.27">14 km</span>
                                 Grillenium Falcon
                             </li>
                         </ul>
@@ -119,7 +196,9 @@
                             </div>
                         </div>
                         <hr/>
-                        <div class="well">The estimated delivery time from "Bread Zeppelin" to your location is <span class="badge">12 minutes</span>.</div>
+                        <div class="well">The estimated delivery time from "Bread Zeppelin" to your location is <span
+                                class="badge duration">12 minutes</span>.
+                        </div>
                     </div>
                 </div>
             </div>
