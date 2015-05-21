@@ -19,6 +19,12 @@ public class Ingredient {
         this.stk = stk;
     }
 
+    public Ingredient (String name, float price)
+    {
+        this.name = name;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
