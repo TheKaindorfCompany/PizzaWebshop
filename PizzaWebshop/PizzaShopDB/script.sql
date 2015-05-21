@@ -1,5 +1,8 @@
+ALTER TABLE ingredients_in_product
 DROP CONSTRAINT ing_pro_PK;
+ALTER TABLE products
 DROP CONSTRAINT pro_PK;
+ALTER TABLE ingredients
 DROP CONSTRAINT ing_PK;
 
 DROP TABLE ingredients_in_product;
