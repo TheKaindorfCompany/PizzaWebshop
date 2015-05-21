@@ -29,7 +29,6 @@ public class IngredientModel {
 
     }
 
-
     public Ingredient getCurrentIngridient(int index)
     {
         return ingredientList.get(index);

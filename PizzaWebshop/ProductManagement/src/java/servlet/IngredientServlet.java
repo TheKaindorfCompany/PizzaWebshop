@@ -14,6 +14,7 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
 
     public void init() {
         this.m_IngredientList = new IngredientModel();
+
         this.m_IngredientList.addIngredient("", "Test", 12, 12);
     }
 
@@ -23,12 +24,17 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         int aufgabe = Integer.parseInt(request.getParameter("art"));
+        String search = "";
+        if (request.getParameter("serachFor") != null) {
+            search = request.getParameter("searchFor");
+        }
+
         // Set response content type
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         if (aufgabe == 1) {
             // Get Ingredient
-            this.onGetIngredients(out);
+            this.onGetIngredients(out, search);
         }
         else if (aufgabe == 2) {
             // Add ingredient
@@ -36,14 +42,14 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
             float price = Float.parseFloat(request.getParameter("price"));
             int amount = Integer.parseInt(request.getParameter("amount"));
             this.m_IngredientList.addIngredient("", name, amount, price);
-            this.onGetIngredients(out);
+            this.onGetIngredients(out, search);
         }
     }
 
-    private void onGetIngredients(PrintWriter out) {
+    private void onGetIngredients(PrintWriter out, String restaurant) {
         String output = "<tr><th>Name</th><th>Price</th><th>Amount</th></tr>";
         for (int i = 0; i < this.m_IngredientList.countElements(); i++) {
-            output += this.m_IngredientList.getCurrentIngridient(i);
+            output += this.m_IngredientList.searchIngredient(restaurant);
         }
         out.write(output);
     }
