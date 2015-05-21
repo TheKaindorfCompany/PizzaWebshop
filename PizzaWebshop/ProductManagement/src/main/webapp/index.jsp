@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <title>Product Managment</title>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -42,7 +40,13 @@
 <body onload="getIngredients()">
 <ul class="nav nav-tabs">
     <li role="presentation"><a href="#">Home</a></li>
-    <li role="presentation" class="active"><a href="#">Product Managment</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Product Managment <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="index.jsp" class="active">Ingredients</a></li>
+            <li><a href="ProductManagment.jsp">Produtcts</a></li>
+        </ul>
+    </li>
 </ul>
 <h1>Product Managment</h1>
 
