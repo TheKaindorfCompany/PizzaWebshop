@@ -59,4 +59,30 @@ public class Product {
     public void setList(LinkedList<Ingredient> list) {
         this.list = list;
     }
+
+    @Override
+    public String toString() {
+        String out = "<td>";
+        out += "  <div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n" +
+                "    <div class=\"panel panel-default\">\n" +
+                "      <div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n" +
+                "        <h4 class=\"panel-title\">\n" +
+                "          <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse"+this.getName()+"\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n" +
+                this.getName()+
+                "          </a>\n" +
+                "        </h4>\n" +
+                "      </div>\n" +
+                "      <div id=\"collapse"+this.getName()+"\"\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n" +
+                "        <div class=\"panel-body\"><ul>";
+
+        for (Ingredient ing:this.list) {
+            out += "<li>"+ing.getName()+"</li>";
+        }
+        out += "</ul> </div>\n" +
+                "      </div>\n" +
+                "    </div>\n" +
+                "    </div>";
+
+        return out;
+    }
 }
