@@ -11,8 +11,8 @@ import java.util.LinkedList;
 public class IngredientModel {
     private DB_Access dba;
     private LinkedList<Ingredient> ingredientList;
-    public IngredientModel()
-    {
+
+    public IngredientModel() {
         try {
             dba = DB_Access.getInstance();
             this.ingredientList = new LinkedList<Ingredient>();
@@ -29,18 +29,15 @@ public class IngredientModel {
 
     }
 
-    public Ingredient getCurrentIngridient(int index)
-    {
+    public Ingredient getCurrentIngridient(int index) {
         return ingredientList.get(index);
     }
 
 
-    public void addIngredient(String picture,String name, int stk, float price)
-    {
-        Ingredient ingredient=new Ingredient(picture,name,price,stk);
+    public void addIngredient(String picture, String name, int stk, float price) {
+        Ingredient ingredient = new Ingredient(picture, name, price, stk);
 
-        if(!ingredientList.contains(ingredient))
-        {
+        if (!ingredientList.contains(ingredient)) {
             ingredientList.add(ingredient);
         }
 
@@ -50,18 +47,22 @@ public class IngredientModel {
         return this.ingredientList.size();
     }
 
-    public LinkedList<Ingredient> searchIngredient(String searchString)
-    {
+    public LinkedList<Ingredient> searchIngredient(String searchString) {
         LinkedList<Ingredient> newList = new LinkedList<Ingredient>();
-        for(Ingredient ingredient:ingredientList)
-        {
-         if(ingredient.getName().contains(searchString))
-         {
-             newList.add(ingredient);
-         }
+        for (Ingredient ingredient : ingredientList) {
+            if (ingredient.getName().contains(searchString)) {
+                newList.add(ingredient);
+            }
         }
         return newList;
     }
 
+    public LinkedList<Ingredient> searchRestaurant(String restaurantName) throws Exception {
+        LinkedList<Ingredient> newList = new LinkedList<Ingredient>();
 
+        newList = dba.getIngredients(restaurantName);
+        return newList;
+    }
 }
+
+
