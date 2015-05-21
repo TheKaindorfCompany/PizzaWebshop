@@ -5,47 +5,48 @@ import java.util.LinkedList;
  */
 public class ProductList {
 
-    private LinkedList<Ingredient> ingredientsList = new LinkedList<Ingredient>();
+    private LinkedList<Product> productList = new LinkedList<Product>();
 
     public ProductList(){
 
     }
 
-    public Ingredient getCurrentIngreident(int index)
+    public Product getCurrentProduct(int index)
     {
-        return ingredientsList.get(index);
+        return productList.get(index);
     }
 
 
-    public void addIngredient(String picture,String name, int stk, float price)
+    public void addProduct(LinkedList<Ingredient> ingredientList, String name, float price, String productId)
     {
-        Ingredient ingredient=new Ingredient(picture,name,price,stk);
+        Product product = new Product(ingredientList, price, name, productId);
 
-        if(!ingredientsList.contains(ingredient))
+
+        if(!productList.contains(product))
         {
-            ingredientsList.add(ingredient);
+            productList.add(product);
         }
 
     }
 
     public int countElements() {
-        return this.ingredientsList.size();
+        return this.productList.size();
     }
 
-    public void deleteIngredient(Ingredient ingredient) {
-        ingredientsList.remove(ingredient);
+    public void deleteProduct(Product product) {
+        productList.remove(product);
     }
 
-    public LinkedList<Ingredient> search(String searchString)
+    public LinkedList<Product> search(String searchString)
     {
-        LinkedList<Ingredient> searchList = new LinkedList<Ingredient>();
-        for(Ingredient ingredient : ingredientsList)
+        LinkedList<Product> searchList = new LinkedList<Product>();
+        for(Product product : productList)
         {
-            String ingredientString = ingredient.getName();
+            String productString = product.getName();
 
-            if(ingredientString.contains(searchString))
+            if(productString.contains(searchString))
             {
-                searchList.add(ingredient);
+                searchList.add(product);
             }
         }
         return searchList;

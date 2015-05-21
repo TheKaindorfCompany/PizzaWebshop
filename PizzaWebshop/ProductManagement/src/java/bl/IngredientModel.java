@@ -1,6 +1,7 @@
 package bl;
 
 import database.DB_Access;
+import sun.awt.image.ImageWatched;
 
 import java.util.LinkedList;
 
@@ -48,6 +49,19 @@ public class IngredientModel {
 
     public int countElements() {
         return this.ingredientList.size();
+    }
+
+    public LinkedList<Ingredient> searchIngredient(String searchString)
+    {
+        LinkedList<Ingredient> newList = new LinkedList<Ingredient>();
+        for(Ingredient ingredient:ingredientList)
+        {
+         if(ingredient.getName().contains(searchString))
+         {
+             newList.add(ingredient);
+         }
+        }
+        return newList;
     }
 
 
