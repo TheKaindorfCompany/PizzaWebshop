@@ -13,9 +13,8 @@ public class Ingredient {
     private float price;
 
     public Ingredient(String picture, String name, float price, int stk) {
+        this(name, price);
         this.picture = picture;
-        this.name = name;
-        this.price = price;
         this.stk = stk;
     }
 
