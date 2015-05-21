@@ -11,9 +11,9 @@ public class Product {
     private String name;
     private String productId;
 
-    public Product(LinkedList<Ingredient> list, float price, String name, String productId) {
+    public Product(LinkedList<Ingredient> list, String name, String productId) {
         this.list = list;
-        this.price = price;
+        this.calcPrice();
         this.name=name;
         this.productId= productId;
     }

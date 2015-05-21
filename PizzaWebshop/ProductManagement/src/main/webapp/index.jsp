@@ -19,7 +19,7 @@
         function getIngredients() {
             var url = "IngredientServlet?art=1";
             $.get(url, function(dat, status) {
-                $('#tableProductList').html(dat);
+                $('#tableIngredientList').html(dat);
             });
         }
 
@@ -31,7 +31,7 @@
             var url = "IngredientServlet?art=2&name="+name+"&price="+prize+"&amount="+amount;
 
             $.get(url, function(dat, status) {
-                $('#tableProductList').html(dat);
+                $('#tableIngredientList').html(dat);
             });
         }
 
@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <table id="tableProductList" class="table">
+    <table id="tableIngredientList" class="table">
 
     </table>
 

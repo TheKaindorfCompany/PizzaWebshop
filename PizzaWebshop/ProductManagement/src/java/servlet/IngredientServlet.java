@@ -49,7 +49,11 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
     private void onGetIngredients(PrintWriter out, String restaurant) {
         String output = "<tr><th>Name</th><th>Price</th><th>Amount</th></tr>";
         for (int i = 0; i < this.m_IngredientList.countElements(); i++) {
-            output += this.m_IngredientList.searchIngredient(restaurant);
+            try {
+                output += this.m_IngredientList.searchRestaurant(restaurant);
+            } catch(Exception e) {
+
+            }
         }
         out.write(output);
     }
