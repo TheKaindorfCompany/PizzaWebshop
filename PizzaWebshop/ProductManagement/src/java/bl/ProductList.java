@@ -17,9 +17,9 @@ public class ProductList {
     }
 
 
-    public void addProduct(LinkedList<Ingredient> ingredientList, String name, String productId)
+    public void addProduct(LinkedList<Ingredient> ingredientList, String name, String productId, String restName)
     {
-        Product product = new Product(ingredientList, name, productId);
+        Product product = new Product(ingredientList, name, productId, restName);
 
         if(!productList.contains(product))
         {

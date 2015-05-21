@@ -34,7 +34,7 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
         PrintWriter out = response.getWriter();
         if (aufgabe == 1) {
             // Get Ingredient
-            this.onGetIngredients(out, search);
+            this.onGetIngredients(out);
         }
         else if (aufgabe == 2) {
             // Add ingredient
@@ -42,15 +42,15 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
             float price = Float.parseFloat(request.getParameter("price"));
             int amount = Integer.parseInt(request.getParameter("amount"));
             this.m_IngredientList.addIngredient("", name, amount, price);
-            this.onGetIngredients(out, search);
+            this.onGetIngredients(out);
         }
     }
 
-    private void onGetIngredients(PrintWriter out, String restaurant) {
+    private void onGetIngredients(PrintWriter out) {
         String output = "<tr><th>Name</th><th>Price</th><th>Amount</th></tr>";
         for (int i = 0; i < this.m_IngredientList.countElements(); i++) {
             try {
-                output += this.m_IngredientList.searchRestaurant(restaurant);
+                output += "<tr><td>"+this.m_IngredientList.getCurrentIngridient(i).toString()+"</td></tr>";
             } catch(Exception e) {
 
             }

@@ -24,11 +24,11 @@ public class ProductServlet extends javax.servlet.http.HttpServlet {
         LinkedList<Ingredient> testData = new LinkedList<Ingredient>();
         testData.add(testIng);
         testData.add(testIng1);
-        this.addProduct("ColaMitEis", testData, "ColaMitEis");
+        this.addProduct("ColaMitEis", testData, "ColaMitEis", "Luigis");
     }
 
-    public void addProduct(String name,  LinkedList<Ingredient> ingredients, String prodId) {
-        this.m_ProductList.addProduct(ingredients, name, prodId);
+    public void addProduct(String name,  LinkedList<Ingredient> ingredients, String prodId, String restName) {
+        this.m_ProductList.addProduct(ingredients, name, prodId, restName);
     }
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
@@ -42,10 +42,13 @@ public class ProductServlet extends javax.servlet.http.HttpServlet {
             //auslesen aller Produkte
             response.getWriter().write(this.getProductsAsTable());
         }
+        else if (art == 2) {
+            //produkte hinzufügen
+        }
     }
 
     public String getProductsAsTable() {
-        String prodOut = "<tr><th>Name</th></tr>";
+        String prodOut = "<tr><th>Restaurant Name</th><th>Produkt</th></tr>";
         for(int i =0; i < this.m_ProductList.countElements(); i++) {
             Product aktProdukt = this.m_ProductList.getCurrentProduct(i);
             prodOut+=aktProdukt.toString();

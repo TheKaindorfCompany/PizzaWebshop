@@ -77,15 +77,15 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="input-group">
-                        <label>Name of Product</label>
-                        <input type="text" class="form-control" aria-label="" placeholder="Productname" id="prodName">
+                        <label>Name of Ingredient</label>
+                        <input type="text" class="form-control" aria-label="" placeholder="Ingredient Name" id="prodName">
                     </div>
                     <div class="input-group">
-                        <label>Price of Product</label>
+                        <label>Price of Ingredient</label>
                         <input type="text" class="form-control" aria-label="" placeholder="Price" id="prodPrice">
                     </div>
                     <div class="input-group">
-                        <label>Amount of Product</label>
+                        <label>Amount of Ingredient</label>
                         <input type="text" class="form-control" aria-label="" placeholder="Amount" id="prodAmount">
                     </div>
 

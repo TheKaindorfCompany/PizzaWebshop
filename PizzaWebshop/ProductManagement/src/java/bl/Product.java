@@ -1,5 +1,4 @@
 package bl;
-
 import java.util.LinkedList;
 
 /**
@@ -10,12 +9,17 @@ public class Product {
     private float price;
     private String name;
     private String productId;
+    private String restaurantName;
 
     public Product(LinkedList<Ingredient> list, String name, String productId) {
         this.list = list;
         this.calcPrice();
         this.name=name;
         this.productId= productId;
+    }
+    public Product(LinkedList<Ingredient> list, String name, String productId, String restName) {
+        this(list, name, productId);
+        this.restaurantName = restName;
     }
 
     public String getProductId() {
@@ -62,7 +66,9 @@ public class Product {
 
     @Override
     public String toString() {
-        String out = "<td>";
+        String out = "<td>" + this.restaurantName + "</td>";
+
+        out += "<td>";
         out += "  <div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n" +
                 "    <div class=\"panel panel-default\">\n" +
                 "      <div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n" +
