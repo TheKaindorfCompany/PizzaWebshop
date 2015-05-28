@@ -23,11 +23,17 @@ DROP CONSTRAINT res_adr_FK;
 ALTER TABLE address
 DROP CONSTRAINT adr_PK;
 
+ALTER TABLE member
+DROP CONSTRAINT mem_id_PK;
+ALTER TABLE member
+DROP CONSTRAINT mem_adr_FK;
+
 DROP TABLE ingredients_in_product;
 DROP TABLE products;
 DROP TABLE ingredients;
 DROP TABLE restaurant;
 DROP TABLE address;
+DROP TABLE member;
 
 CREATE TABLE products
 (
@@ -74,6 +80,16 @@ CREATE TABLE restaurant
   picture VARCHAR(50)
 );
 
+CREATE TABLE member
+(
+  member_id NUMBER(10,0),
+  first_name VARCHAR2(50),
+  last_name VARCHAR2(50),
+  address_id NUMBER(10, 0) NOT NULL,
+  email VARCHAR2(150),
+  password VARCHAR2(50)
+);
+
 ALTER TABLE address
 ADD CONSTRAINT adr_PK PRIMARY KEY (address_id);
 
@@ -98,3 +114,8 @@ ALTER TABLE ingredients_in_product
 ADD CONSTRAINT inp_ing_FK FOREIGN KEY (ingredient_id, restaurant_id) REFERENCES ingredients(ingredient_id, restaurant_id);
 ALTER TABLE ingredients_in_product
 ADD CONSTRAINT ing_pro_PK PRIMARY KEY (product_id, ingredient_id, restaurant_id);
+
+ALTER TABLE member
+ADD CONSTRAINT mem_id_PK PRIMARY KEY (member_id);
+ALTER TABLE member
+ADD CONSTRAINT mem_adr_FK FOREIGN KEY (address_id) REFERENCES address(address_id);
