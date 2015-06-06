@@ -73,12 +73,12 @@ public class Product {
                 "    <div class=\"panel panel-default\">\n" +
                 "      <div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n" +
                 "        <h4 class=\"panel-title\">\n" +
-                "          <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse"+this.getName()+"\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n" +
+                "          <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse"+this.getName().trim()+"\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n" +
                 this.getName()+
                 "          </a>\n" +
                 "        </h4>\n" +
                 "      </div>\n" +
-                "      <div id=\"collapse"+this.getName()+"\"\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n" +
+                "      <div id=\"collapse"+this.getName().trim()+"\"\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n" +
                 "        <div class=\"panel-body\"><ul>";
 
         for (Ingredient ing:this.list) {

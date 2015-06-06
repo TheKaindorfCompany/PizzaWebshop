@@ -28,13 +28,56 @@
             var prize = document.getElementById("prodPrice").value;
             var amount = document.getElementById("prodAmount").value;
 
+            if (name == "") {
+                alert("NO name!");
+            }
+            else if (prize == "") {
+                alert("No Price");
+                return null;
+            }
+            else if (amount == "") {
+                alert("No amount!");
+                return null;
+            }
             var url = "IngredientServlet?art=2&name="+name+"&price="+prize+"&amount="+amount;
 
             $.get(url, function(dat, status) {
                 $('#tableIngredientList').html(dat);
+
+                $('#prodName').val("");
+                $('#prodAmount').val("");
+                $('#prodPrice').val("");
             });
         }
 
+        function editIngredient(name) {
+            var elements = document.getElementsByName(name);
+            for (var i=0; i < elements.length; i++) {
+                elements[i].readOnly = false;
+            }
+            $('#btn'+name).html("Speichern");
+            var index = document.getElementById("btn"+name).name;
+            $('#btn'+name).attr("onClick", "onBearbeiten('" + name +"', '"+index+"')");
+        }
+
+        function onBearbeiten(name, index) {
+            var id = index.split(" ")[1];
+            var name = document.getElementById('inp ' + id + ' Name').value;
+            var price = document.getElementById('inp ' + id + ' Price').value;
+
+            var url = "IngredientServlet?art=3&name="+name+"&price="+price + "&index="+index;
+            $.get(url, function(data, status) {
+                var elements = document.getElementsByName(name);
+                for (var i=0; i < elements.length; i++) {
+                    elements[i].readOnly = true;
+                }
+                $('#divStatus').html('<div class="alert alert-success" id="divSuccessAnzeige" role="alert">Erfolgreich upgedatet</div>');
+                setTimeout(function()
+                {$('#divSuccessAnzeige').remove()}
+                        , 5000);
+                $('#btnTest').html("Bearbeiten");
+            });
+        }
     </script>
 </head>
 <body onload="getIngredients()">
@@ -48,6 +91,7 @@
         </ul>
     </li>
 </ul>
+<div id='divStatus'></div>
 <h1>Product Managment</h1>
 
 <div class="col-sm-4">

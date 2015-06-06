@@ -24,7 +24,7 @@ public class DB_Access {
     }
 
     private DB_Access() throws ClassNotFoundException {
-        connPool = DB_ConnectionPool.getInstance();
+        //connPool = DB_ConnectionPool.getInstance();
     }
 
     public LinkedList<Ingredient> getIngredients(String restaurantName) throws Exception {

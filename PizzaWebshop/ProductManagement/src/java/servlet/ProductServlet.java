@@ -44,14 +44,29 @@ public class ProductServlet extends javax.servlet.http.HttpServlet {
         }
         else if (art == 2) {
             //produkte hinzufügen
+            String productName = request.getParameter("prodName");
+            String ingredients = request.getParameter("ingredients");
+            this.addProductToList(productName, ingredients);
+            response.getWriter().write(this.getProductsAsTable());
         }
+    }
+
+    public void addProductToList(String prodName, String prodListString) {
+        String[] gesp = prodListString.split("}");
+
+        LinkedList<Ingredient> ingList = new LinkedList<Ingredient>();
+        for (String element : gesp) {
+            ingList.add(new Ingredient(element, 0f));
+        }
+
+        this.m_ProductList.addProduct(ingList, prodName, prodName, "Luigis");
     }
 
     public String getProductsAsTable() {
         String prodOut = "<tr><th>Restaurant Name</th><th>Produkt</th></tr>";
         for(int i =0; i < this.m_ProductList.countElements(); i++) {
             Product aktProdukt = this.m_ProductList.getCurrentProduct(i);
-            prodOut+=aktProdukt.toString();
+            prodOut+="<tr>"+aktProdukt.toString()+"</tr>";
         }
         return prodOut;
     }

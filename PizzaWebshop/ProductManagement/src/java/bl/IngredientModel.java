@@ -21,6 +21,26 @@ public class IngredientModel {
 
     }
 
+    public int getIndexOfIngredientByName(String name) {
+        int index = -1;
+        for(Ingredient ing : this.ingredientList) {
+            index++;
+            if (ing.getName() == name) return index;
+        }
+        return -1;
+    }
+
+    public boolean changeElement(int index, float price, String name) {
+        try {
+            Ingredient element = this.ingredientList.get(index);
+            element.setName(name);
+            element.setPrice(price);
+            this.ingredientList.set(index, element);
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
+    }
 
     public LinkedList<Ingredient> getIngredientList(String restName) throws Exception {
 
