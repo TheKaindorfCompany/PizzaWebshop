@@ -48,7 +48,8 @@ public class IngredientModel {
 
     }
 
-    public Ingredient getCurrentIngridient(int index) {
+    public Ingredient getCurrentIngridient(int index) throws IllegalArgumentException {
+        if (index < 0) throw new IllegalArgumentException("Cannot a listelement for index less than 0!");
         return ingredientList.get(index);
     }
 
@@ -59,7 +60,12 @@ public class IngredientModel {
         if (!ingredientList.contains(ingredient)) {
             ingredientList.add(ingredient);
         }
+    }
 
+    public void addIngredientObject(Ingredient ing) throws IllegalArgumentException {
+        if (ing == null) throw new IllegalArgumentException("Ingredient is null!");
+
+        this.ingredientList.add(ing);
     }
 
     public int countElements() {
