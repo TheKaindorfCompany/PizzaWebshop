@@ -11,8 +11,10 @@ public class ProductList {
 
     }
 
-    public Product getCurrentProduct(int index)
+    public Product getCurrentProduct(int index) throws IllegalArgumentException,IndexOutOfBoundsException
     {
+        if (index < 0) throw new IllegalArgumentException("Index can not be less than zero!");
+        if (this.productList.size() <= index) throw new IndexOutOfBoundsException("Index is fewer than max size of list!");
         return productList.get(index);
     }
 
@@ -28,11 +30,19 @@ public class ProductList {
 
     }
 
+    public void addProductObject(Product p) throws IllegalArgumentException {
+        if (p == null) {
+            throw new IllegalArgumentException("Product is null!");
+        }
+        this.productList.add(p);
+    }
+
     public int countElements() {
         return this.productList.size();
     }
 
-    public void deleteProduct(Product product) {
+    public void deleteProduct(Product product) throws IllegalArgumentException{
+        if (product == null) throw new IllegalArgumentException("Error! Product to delete is null");
         productList.remove(product);
     }
 
