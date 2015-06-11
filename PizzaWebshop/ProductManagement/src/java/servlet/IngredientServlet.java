@@ -57,8 +57,8 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
             //create select for product creator
             String output = "<option value=''></option>";
             for(int i=0; i < this.m_IngredientList.countElements(); i++) {
-                output += "<option value='" + this.m_IngredientList.getCurrentIngridient(i).getName() +"'>" +
-                        this.m_IngredientList.getCurrentIngridient(i).getName() + "</option>";
+                output += "<option value='" + this.m_IngredientList.getCurrentIngredient(i).getName() +"'>" +
+                        this.m_IngredientList.getCurrentIngredient(i).getName() + "</option>";
             }
             response.getWriter().write(output);
         }
@@ -69,16 +69,16 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
         String output = "<tr><th>Name</th><th>Price</th><th>Amount</th></tr>";
         for (int i = 0; i < this.m_IngredientList.countElements(); i++) {
             try {
-                if (this.m_IngredientList.getCurrentIngridient(i).getName() != "")
-                    output += "<tr><td><input type='text' name='"+this.m_IngredientList.getCurrentIngridient(i).getName() + "' " +
-                            "readonly value='"+this.m_IngredientList.getCurrentIngridient(i).getName()+"'" +
+                if (this.m_IngredientList.getCurrentIngredient(i).getName() != "")
+                    output += "<tr><td><input type='text' name='"+this.m_IngredientList.getCurrentIngredient(i).getName() + "' " +
+                            "readonly value='"+this.m_IngredientList.getCurrentIngredient(i).getName()+"'" +
                             "id='inp "+i+" Name'></td>";
-                    output += "<td><input type='text' readonly value='"+this.m_IngredientList.getCurrentIngridient(i).getPrice()+"'" +
-                            " name='"+this.m_IngredientList.getCurrentIngridient(i).getName() + "'" +
+                    output += "<td><input type='text' readonly value='"+this.m_IngredientList.getCurrentIngredient(i).getPrice()+"'" +
+                            " name='"+this.m_IngredientList.getCurrentIngredient(i).getName() + "'" +
                             "id='inp "+i+" Price'></td>";
-                    output += "<td>"+this.m_IngredientList.getCurrentIngridient(i).getStk()+"</td>" +
-                            "<td><button class='btn btn-default' onclick='editIngredient(\"" + this.m_IngredientList.getCurrentIngridient(i).getName() + "\")" +
-                            "' id='btn"+this.m_IngredientList.getCurrentIngridient(i).getName()+"'" +
+                    output += "<td>"+this.m_IngredientList.getCurrentIngredient(i).getStk()+"</td>" +
+                            "<td><button class='btn btn-default' onclick='editIngredient(\"" + this.m_IngredientList.getCurrentIngredient(i).getName() + "\")" +
+                            "' id='btn"+this.m_IngredientList.getCurrentIngredient(i).getName()+"'" +
                             "name='btn "+i+"'>Edit Ingredient</button></td>" +
 
                             "<td><button class='btn btn-default' onclick='erhoeheMenge(\"" + i + "\")'>Change Amount</button></td>" +

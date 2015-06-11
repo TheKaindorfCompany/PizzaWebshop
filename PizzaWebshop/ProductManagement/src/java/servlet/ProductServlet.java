@@ -11,7 +11,7 @@ import java.util.LinkedList;
 /**
  * Created by dominik on 21.05.2015.
  */
-public class ProductServlet extends javax.servlet.http.HttpServlet {
+    public class ProductServlet extends javax.servlet.http.HttpServlet {
     private ProductList m_ProductList;
     public void init() {
         this.m_ProductList = new ProductList();

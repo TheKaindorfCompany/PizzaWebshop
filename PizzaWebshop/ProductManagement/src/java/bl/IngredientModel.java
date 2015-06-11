@@ -48,7 +48,7 @@ public class IngredientModel {
 
     }
 
-    public Ingredient getCurrentIngridient(int index) throws IllegalArgumentException {
+    public Ingredient getCurrentIngredient(int index) throws IllegalArgumentException {
         if (index < 0) throw new IllegalArgumentException("Cannot a listelement for index less than 0!");
         return ingredientList.get(index);
     }

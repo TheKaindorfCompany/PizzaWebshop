@@ -42,7 +42,7 @@ public class IngredientModelTest {
         Ingredient ing = new Ingredient("", "Salami",1.4f,12);
         this.m_Model.addIngredient("", "Salami", 12, 1.4f);
         //It should return 0
-        Assert.assertThat(this.m_Model.getCurrentIngridient(0), equalTo(ing));
+        Assert.assertThat(this.m_Model.getCurrentIngredient(0), equalTo(ing));
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -50,7 +50,7 @@ public class IngredientModelTest {
         Ingredient ing = new Ingredient("", "Salami",1.4f,12);
         this.m_Model.addIngredient("", "Salami", 12, 1.4f);
         //It should return 0
-        Assert.assertThat(this.m_Model.getCurrentIngridient(-1), equalTo(ing));
+        Assert.assertThat(this.m_Model.getCurrentIngredient(-1), equalTo(ing));
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -64,6 +64,6 @@ public class IngredientModelTest {
         Ingredient ing = new Ingredient("", "Salami",1.4f,12);
         this.m_Model.addIngredientObject(ing);
         //It should return 0
-        Assert.assertThat(this.m_Model.getCurrentIngridient(0), equalTo(ing));
+        Assert.assertThat(this.m_Model.getCurrentIngredient(0), equalTo(ing));
     }
 }
