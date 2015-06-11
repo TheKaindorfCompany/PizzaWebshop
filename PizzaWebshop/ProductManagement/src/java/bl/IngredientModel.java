@@ -7,6 +7,8 @@ import java.util.LinkedList;
 /**
  * Product Management
  * Zuständig für die Verwaltung der Ingredient Liste
+ * Product Management
+ * Verwaltungsklasse für Ingredients
  */
 public class IngredientModel {
     private DB_Access dba;

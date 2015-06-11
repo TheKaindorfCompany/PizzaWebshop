@@ -3,6 +3,8 @@ import java.util.LinkedList;
 /**
  * Product Management
  * Verwaltungsklasse für die Produktliste
+ * Product Management
+ *
  */
 public class ProductList {
 

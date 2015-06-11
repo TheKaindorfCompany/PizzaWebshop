@@ -35,7 +35,10 @@ public class DB_Access {
         String sqlString = "";
         if(restaurantName.isEmpty())
         {
-            sqlString = "SELECT picture, name, price, stk FROM Ingredients;";
+            sqlString =""+
+                    "SELECT i.name, i.price, i.amount, i.picture " +
+                    "FROM ingredients i INNER JOIN restaurant r ON (i.restaurant_id = r.restaurant_id) " +
+                    "WHERE UPPER(r.name) = '"+restaurantName.toUpperCase()+"';";
         }
 
         ResultSet rs = stat.executeQuery(sqlString);
@@ -44,14 +47,14 @@ public class DB_Access {
             String picture = rs.getString("picture");
             String name = rs.getString("name");
             float price = rs.getFloat("price");
-            int stk = rs.getInt("stk");
+            int stk = rs.getInt("amount");
             ingredients.add(new Ingredient(picture, name, price, stk));
         }
         connPool.releaseConnection(conn);
         return ingredients;
     }
 
-    public void insertIngredient(Ingredient ingredient) throws Exception {
+    public void addIngredient(Ingredient ingredient) throws Exception {
         // Fügt ein neues Ingredient der Datenbank hinzu
         Connection conn = connPool.getConnection();
         Statement stat = conn.createStatement();
@@ -61,6 +64,11 @@ public class DB_Access {
 
         connPool.releaseConnection(conn);
     }
+
+
+
+
+
 
 
 

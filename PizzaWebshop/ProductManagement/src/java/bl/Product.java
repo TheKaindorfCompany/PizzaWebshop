@@ -4,6 +4,8 @@ import java.util.LinkedList;
 /**
  * Product Management
  * Beans Klasse für Produkte
+ *Product Management
+ *Beansklasse füs Produkt
  */
 public class Product {
     private LinkedList<Ingredient> list;
