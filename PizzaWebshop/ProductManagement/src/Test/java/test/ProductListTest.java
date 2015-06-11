@@ -95,14 +95,28 @@ public class ProductListTest {
         this.m_ProdList.addProductObject(p2);
         Assert.assertThat(this.m_ProdList.getCurrentProduct(-1), equalTo(p1));
     }
-    @Test
-    public void testGetInstance() throws Exception {
 
+    @Test
+    public void testIfGetProductsOfRestaurantReturnsTheRightProducts() {
+        Product p1 = this.createTestProduct();
+        Product p2 = this.createTestProduct();
+
+        this.m_ProdList.addProductObject(p1);
+        this.m_ProdList.addProductObject(p2);
+
+        LinkedList<Product> products = this.m_ProdList.getProductsFromRestaurant("Luigis");
+        Assert.assertThat(products.size(), equalTo(2));
     }
 
-    @Test
-    public void testGetIngredients() throws Exception {
+    @Test (expected = IllegalArgumentException.class)
+    public void testIfGetProductOfRestaurantReturnsError() {
+        Product p1 = this.createTestProduct();
+        Product p2 = this.createTestProduct();
 
+        this.m_ProdList.addProductObject(p1);
+        this.m_ProdList.addProductObject(p2);
+
+        LinkedList<Product> products = this.m_ProdList.getProductsFromRestaurant("");
     }
 
     private Product createTestProduct() {
@@ -112,7 +126,7 @@ public class ProductListTest {
         testData.add(testIng);
         testData.add(testIng1);
 
-        Product p = new Product(testData, "Cola Mit Eis", "Cola Mit Eis");
+        Product p = new Product(testData, "Cola Mit Eis", "Cola Mit Eis", "Luigis");
         return p;
     }
 }
