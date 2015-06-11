@@ -1,7 +1,8 @@
 package database;
 
 /**
- * Created by Juergen on 23.04.2015.
+ * Product Management
+ * Enthäld die Startconfiguration zum herstellen einer Verbindung zur Datenbank
  */
 public interface DB_Config {
 
