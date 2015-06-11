@@ -2,7 +2,8 @@ package bl;
 import java.util.LinkedList;
 
 /**
- * Created by Veronika on 07.05.2015.
+ * Product Management
+ * Beans Klasse für Produkte
  */
 public class Product {
     private LinkedList<Ingredient> list;
