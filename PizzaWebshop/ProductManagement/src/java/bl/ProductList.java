@@ -46,8 +46,10 @@ public class ProductList {
         productList.remove(product);
     }
 
-    public LinkedList<Product> getProductsFromRestaurant(String restaurantName)
+    public LinkedList<Product> getProductsFromRestaurant(String restaurantName) throws IllegalArgumentException
     {
+        if (restaurantName == "") throw new IllegalArgumentException("No restaurant name!");
+
         LinkedList<Product> searchList = new LinkedList<Product>();
         for(Product product : productList)
         {
