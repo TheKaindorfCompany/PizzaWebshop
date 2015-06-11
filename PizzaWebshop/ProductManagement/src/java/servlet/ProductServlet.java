@@ -49,6 +49,20 @@ public class ProductServlet extends javax.servlet.http.HttpServlet {
             this.addProductToList(productName, ingredients);
             response.getWriter().write(this.getProductsAsTable());
         }
+
+        else if (art == 3) {
+            //Produkte eines Restaurants
+            String restaurantName = request.getParameter("restaurantName");
+            LinkedList<Product> products = this.m_ProductList.getProductsFromRestaurant(restaurantName);
+
+            String productOutput = "";
+            for(Product p : products) {
+                productOutput += p.getName() + "," + p.getPrice() + "\\";
+            }
+
+            request.getSession().setAttribute("productsWithPrice", productOutput);
+        }
+
     }
 
     public void addProductToList(String prodName, String prodListString) {

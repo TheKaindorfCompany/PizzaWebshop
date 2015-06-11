@@ -64,6 +64,13 @@ public class Product {
         this.list = list;
     }
 
+    public void setRestaurantName(String name) {
+        this.restaurantName = name;
+    }
+    public String getRestaurantName() {
+        return this.restaurantName;
+    }
+
     @Override
     public String toString() {
         String out = "<td>" + this.restaurantName + "</td>";

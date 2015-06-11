@@ -46,14 +46,14 @@ public class ProductList {
         productList.remove(product);
     }
 
-    public LinkedList<Product> search(String searchString)
+    public LinkedList<Product> getProductsFromRestaurant(String restaurantName)
     {
         LinkedList<Product> searchList = new LinkedList<Product>();
         for(Product product : productList)
         {
-            String productString = product.getName();
+            String productString = product.getRestaurantName();
 
-            if(productString.contains(searchString))
+            if(productString.toUpperCase().equals(restaurantName.toUpperCase()))
             {
                 searchList.add(product);
             }
