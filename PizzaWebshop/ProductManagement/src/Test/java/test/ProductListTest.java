@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import java.util.LinkedList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -24,7 +25,7 @@ public class ProductListTest {
         this.m_ProdList = new ProductList();
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testIfAddProductNullThrowsError() {
         //Tests if Error is returned when I would like a product which is null
         Product p = null;
