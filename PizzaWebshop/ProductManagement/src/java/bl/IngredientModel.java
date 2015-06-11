@@ -5,7 +5,8 @@ import database.DB_Access;
 import java.util.LinkedList;
 
 /**
- * Created by Julian on 07.05.2015.
+ * Product Management
+ * Zuständig für die Verwaltung der Ingredient Liste
  */
 public class IngredientModel {
     private DB_Access dba;
@@ -22,6 +23,7 @@ public class IngredientModel {
     }
 
     public int getIndexOfIngredientByName(String name) {
+        // Gibt den Index des Ingredients mit anhand des Namens
         int index = -1;
         for(Ingredient ing : this.ingredientList) {
             index++;
@@ -31,6 +33,7 @@ public class IngredientModel {
     }
 
     public boolean changeElement(int index, float price, String name) {
+        // Updated ein Ingredient anhand des Index, dem Preis und dem Namen
         try {
             Ingredient element = this.ingredientList.get(index);
             element.setName(name);
@@ -49,12 +52,15 @@ public class IngredientModel {
     }
 
     public Ingredient getCurrentIngredient(int index) throws IllegalArgumentException {
+
+        // gibt das Ingredient anhand des Indexes zurück
         if (index < 0) throw new IllegalArgumentException("Cannot a listelement for index less than 0!");
         return ingredientList.get(index);
     }
 
 
     public void addIngredient(String picture, String name, int stk, float price) {
+        //Fügt ein neues Ingredient mit Bild und Stückzahl hinzu.
         Ingredient ingredient = new Ingredient(picture, name, price, stk);
 
         if (!ingredientList.contains(ingredient)) {
@@ -63,6 +69,7 @@ public class IngredientModel {
     }
 
     public void addIngredientObject(Ingredient ing) throws IllegalArgumentException {
+        // Fügt ein IngredientsObjekt zur Liste hinzu.
         if (ing == null) throw new IllegalArgumentException("Ingredient is null!");
 
         this.ingredientList.add(ing);
@@ -73,6 +80,7 @@ public class IngredientModel {
     }
 
     public LinkedList<Ingredient> searchIngredient(String searchString) {
+        // Gibt alle Ingredients zurück die im Namen den String enthalten
         LinkedList<Ingredient> newList = new LinkedList<Ingredient>();
         for (Ingredient ingredient : ingredientList) {
             if (ingredient.getName().contains(searchString)) {
@@ -83,6 +91,7 @@ public class IngredientModel {
     }
 
     public LinkedList<Ingredient> searchRestaurant(String restaurantName) throws Exception {
+        // Gibt für ein Restaurant alle Ingredients zurück
         LinkedList<Ingredient> newList = new LinkedList<Ingredient>();
 
         newList = dba.getIngredients(restaurantName);
