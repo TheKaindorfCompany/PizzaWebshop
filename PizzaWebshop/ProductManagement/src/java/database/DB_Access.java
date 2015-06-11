@@ -1,21 +1,22 @@
 package database;
 
 import bl.Ingredient;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
-import bl.Product;
 
 /**
- * Created by Juergen on 23.04.2015.
+ * Product Management
+ * Führt alle Datenbankzugriffe durch
  */
 public class DB_Access {
 
     private DB_ConnectionPool connPool;
 
     private static DB_Access theInstance = null;
-
+    // Es darf nur eine Instanz geben.
     public static DB_Access getInstance() throws ClassNotFoundException {
         if (theInstance == null) {
             theInstance = new DB_Access();
@@ -28,6 +29,7 @@ public class DB_Access {
     }
 
     public LinkedList<Ingredient> getIngredients(String restaurantName) throws Exception {
+        // Holt anhand des Restaurantnamen alle Ingredients aus der Datenbank
         Connection conn = connPool.getConnection();
         Statement stat = conn.createStatement();
         String sqlString = "";
@@ -35,11 +37,6 @@ public class DB_Access {
         {
             sqlString = "SELECT picture, name, price, stk FROM Ingredients;";
         }
-
-        else{
-
-        }
-
 
         ResultSet rs = stat.executeQuery(sqlString);
         LinkedList<Ingredient> ingredients = new LinkedList<Ingredient>();
@@ -55,6 +52,7 @@ public class DB_Access {
     }
 
     public void insertIngredient(Ingredient ingredient) throws Exception {
+        // Fügt ein neues Ingredient der Datenbank hinzu
         Connection conn = connPool.getConnection();
         Statement stat = conn.createStatement();
         String sqlString = "INSERT INTO ingredient VALUES ("+"'"+ingredient.getPicture()+"', '"+ingredient.getName()+", "+ingredient.getPrice()+", "+ingredient.getStk()+");";
