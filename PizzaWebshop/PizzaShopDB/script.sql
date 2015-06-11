@@ -119,3 +119,18 @@ ALTER TABLE member
 ADD CONSTRAINT mem_id_PK PRIMARY KEY (member_id);
 ALTER TABLE member
 ADD CONSTRAINT mem_adr_FK FOREIGN KEY (address_id) REFERENCES address(address_id);
+
+
+INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
+VALUES(0, 0, 'Bread Zeppelin', 'SuperDuperDescription','bla.jpg');
+INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
+VALUES(1, 1, 'Thai Tanic','SuperDuperDescription',  'bla.jpg');
+INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
+VALUES(2, 2,  'Pita Pan', 'SuperDuperDescription','bla.jpg');
+INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
+VALUES(3, 3,  'Lord of the Wings', 'SuperDuperDescription','bla.jpg');
+INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
+VALUES(4, 4, 'Wok this way', 'SuperDuperDescription','bla.jpg');
+INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
+VALUES(5, 5,  'Grillenium Falcon', 'SuperDuperDescription','bla.jpg');
+
