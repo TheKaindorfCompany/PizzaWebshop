@@ -1,7 +1,8 @@
 package bl;
 
 /**
- * Created by Veronika on 16.04.2015.
+ * Product Management
+ * Beans Klasse für Ingredients
  */
 
 
