@@ -175,3 +175,15 @@ VALUES(4, 4, 'Wok this way', 'SuperDuperDescription','bla.jpg');
 INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
 VALUES(5, 5,  'Grillenium Falcon', 'SuperDuperDescription','bla.jpg');
 
+INSERT INTO address(address_id, street, zip, town, xcoord, ycoord)
+VALUES(0, 'Test Strase 1', 'A-0815', 'Teststadt', 48.243562, 14.960938
+INSERT INTO address(address_id, street, zip, town, xcoord, ycoord)
+VALUES(1, 'Test Strase 2', 'A-0815', 'Teststadt', 48.243562, 14.960938)
+INSERT INTO address(address_id, street, zip, town, xcoord, ycoord)
+VALUES(2, 'Test Strase 3', 'A-0815', 'Teststadt', 48.243562, 14.960938)
+INSERT INTO address(address_id, street, zip, town, xcoord, ycoord)
+VALUES(3, 'Test Strase 4', 'A-0815', 'Teststadt', 48.243562, 14.960938)
+INSERT INTO address(address_id, street, zip, town, xcoord, ycoord)
+VALUES(4, 'Test Strase 5', 'A-0815', 'Teststadt', 48.243562, 14.960938),
+INSERT INTO address(address_id, street, zip, town, xcoord, ycoord)
+VALUES(5, 'Berlinerweg', 'D-83135', 'Testing', 48.243562, 14.960938)
