@@ -5,10 +5,6 @@
  */
 package servlet;
 
-import beans.Adresse;
-import beans.Member;
-import database.DBAccess;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,18 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.LinkedList;
 
 /**
  *
  * @author Enis Lushtaku
  */
-@WebServlet(name = "AnmeldungServlet", urlPatterns =
+@WebServlet(name = "Costumer", urlPatterns =
         {
-                "/AnmeldungServlet"
+                "/Costumer"
         })
-public class Anmeldung extends HttpServlet
+public class Costumer extends HttpServlet
 {
 
     /**
@@ -46,35 +40,19 @@ public class Anmeldung extends HttpServlet
         PrintWriter out = response.getWriter();
         try
         {
-            DBAccess access = new DBAccess();
-            LinkedList<Member> members = access.getMember();
-            String email;
-            String password;
-            if(request.getParameter("anmeldung")!=null)
+            if(request.getParameter("bBestellen")!=null)
             {
-                if (!(request.getParameter("inputEmail") == null && request.getParameter("inputPassword") == null))
-                {
-                    email = request.getParameter("inputEmail");
-                    password = request.getParameter("inputPassword");
-                }
-                for (Member m : members)
-                {
-                    if (m.getEmail().equals(email))
-                    {
-                        if (m.getPasswort().equals(password))
-                        {
-                            response.sendRedirect(response.encodeRedirectURL("costumer.html"));
-                        } else
-                        {
-                            out.print("alert(\"Password ist falsch! Bitte erneut eingeben\");");
-                        }
-                    } else
-                    {
-                        out.print("alert(\"User nicht vorhanden, bitte registrieren\");");
-                    }
-                }
+                response.sendRedirect(response.encodeRedirectURL("index.jsp")); //Seite von Ordermanagement wird geöffnet.
             }
-
+            if(request.getParameter("bMeineBestellungen")!=null)
+            {
+                out.print("alert(\" Funktion nicht vorhanden ERROR0815:Funktion nicht ausimplementiert!\")");
+            }
+            if(request.getParameter("bLogout")!=null)
+            {
+                response.sendRedirect(response.encodeRedirectURL("anmeldung.html")); //Anmeldeseite wird wieder geöffnet
+            }
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>\n" +
                     "<html>\n" +
                     "<head lang=\"en\">\n" +
@@ -85,30 +63,19 @@ public class Anmeldung extends HttpServlet
                     "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n" +
                     "</head>\n" +
                     "<body>\n" +
+                    "\n" +
                     "<div class=\"container\">\n" +
-                    "    <form class=\"form-signin\" ACTION=\"GET\">\n" +
-                    "        <h2 class=\"form-signin-heading\">Bitte einloggen</h2>\n" +
-                    "        <label for=\"inputEmail\" class=\"sr-only\">Email-Adresse</label>\n" +
-                    "        <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n" +
-                    "        <label for=\"inputPassword\" class=\"sr-only\">Passwort</label>\n" +
-                    "        <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n" +
-                    "        <div class=\"checkbox\">\n" +
-                    "            <label>\n" +
-                    "                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n" +
-                    "            </label>\n" +
-                    "        </div>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"anmeldung\">Anmeldung</button>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"registrierung\">Registrierung</button>\n" +
+                    "\n" +
+                    "    <form class=\"form-signin\" action=\"get\">\n" +
+                    "        <h2 class=\"form-signin-heading\">Willkommen auf der Userpage</h2>\n" +
+                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bBestellen\">Bestellen</button>\n" +
+                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bMeineBestellungen\">Meine Bestellungen</button>\n" +
+                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bLogout\">Logout und zurück</button>\n" +
                     "    </form>\n" +
+                    "\n" +
                     "</div>\n" +
                     "</body>\n" +
                     "</html>");
-        } catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        } catch (SQLException e)
-        {
-            e.printStackTrace();
         } finally
         {
             out.close();
