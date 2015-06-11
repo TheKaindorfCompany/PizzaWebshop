@@ -90,6 +90,36 @@ CREATE TABLE member
   password VARCHAR2(50)
 );
 
+CREATE TABLE restaurantowner
+(
+	restaurantowner_ID		NUMBER(4) NOT NULL PRIMARY KEY,
+	first_name VARCHAR2(50),
+  last_name VARCHAR2(50),
+  address_id NUMBER(10, 0),
+	email 		VARCHAR2(40) NOT NULL,
+	password	VARCHAR2(40) NOT NULL
+)
+
+CREATE TABLE owners
+{
+  restaurantowner_ID		NUMBER(4) NOT NULL PRIMARY KEY,
+  restaurant_id NUMBER(10, 0) NOT NULL PRIMARY KEY
+}
+
+CREATE TABLE newsletter
+(
+	newsletterID NUMBER(4) NOT NULL PRIMARY KEY,
+	restaurantID NUMBER(4) NOT NULL PRIMARY KEY,
+	text VARCHAR(40)
+)
+
+CREATE TABLE discount
+(	
+    discountID NUMBER(4) NOT NULL PRIMARY KEY
+    restaurantID NUMBER(4) NOT NULL PRIMARY KEY,
+    discount NUMBER(3) NOT NULL
+)
+
 ALTER TABLE address
 ADD CONSTRAINT adr_PK PRIMARY KEY (address_id);
 
@@ -119,6 +149,17 @@ ALTER TABLE member
 ADD CONSTRAINT mem_id_PK PRIMARY KEY (member_id);
 ALTER TABLE member
 ADD CONSTRAINT mem_adr_FK FOREIGN KEY (address_id) REFERENCES address(address_id);
+
+ALTER TABLE newsletter
+ADD CONSTANT nl_rid_fk FOREIGN KEY (restaurantID) REFERENCES restaurant(restaurantID);
+
+ALTER TABLE discount
+ADD CONSTANT di_rid_fk FOREIGN KEY (restaurantID) REFERENCES restaurant(restaurantID);
+
+ALTER TABLE owners
+ADD CONSTRAINT own_oid_FK FOREIGN KEY (restaurantowner_ID) REFERENCES restaurantowner(restaurantowner_ID);
+ALTER TABLE owners
+ADD CONSTRAINT res_oid_FK FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id);
 
 
 INSERT INTO restaurant (restaurant_id, address_id, name, description, picture)
