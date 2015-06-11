@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by dominik on 23.04.2015.
+ * Product Managment
+ * Servlet als Schnittstelle für Products
+ * @author Dominik Sammer
  */
 public class IngredientServlet extends javax.servlet.http.HttpServlet {
 

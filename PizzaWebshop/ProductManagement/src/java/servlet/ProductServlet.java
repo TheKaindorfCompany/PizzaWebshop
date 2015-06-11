@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- * Created by dominik on 21.05.2015.
+ * Product Managment
+ * Servlet Klasse als Schnittstelle
+ * @author Dominik Sammer
  */
     public class ProductServlet extends javax.servlet.http.HttpServlet {
     private ProductList m_ProductList;
@@ -17,6 +19,7 @@ import java.util.LinkedList;
         this.m_ProductList = new ProductList();
         this.addTestDatensatz();
     }
+
 
     private void addTestDatensatz() {
         Ingredient testIng = new Ingredient("Cola",1);
