@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.util.LinkedList;
 
 /**
- * Created by Juergen on 23.04.2015.
+ * Produkt Management
+ * Stellt die Verbindung zur Datenbank her und beendet diese auch wieder.
  */
 public class DB_ConnectionPool implements DB_Config {
 
