@@ -7,7 +7,8 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 /**
- * Created by dominik on 10.06.2015.
+ * Product Management
+ * Testklasse für die IngredientModel Klasse
  */
 public class IngredientModelTest {
     private IngredientModel m_Model;
@@ -19,6 +20,7 @@ public class IngredientModelTest {
 
     @Test
     public void testIfRightIndexIsReturned() {
+        // Testet ob nach hinzufüge
         this.m_Model.addIngredient("", "Salami", 12, 1.4f);
         //It should return 0
         Assert.assertThat(this.m_Model.getIndexOfIngredientByName("Salami"), equalTo(0));
