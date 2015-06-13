@@ -28,77 +28,10 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
 
     <!-- calculate distance-->
-    <script type="text/javascript">
-        function calcDistance(origin, destination, outputDest) {
+    <script type="text/javascript" src="resources/distance.js"></script>
 
-            var x, y;
-            origin = origin.split(';');
-            x = parseFloat(origin[0]);
-            y = parseFloat(origin[1]);
-            var service = new google.maps.DistanceMatrixService();
-            origin = new google.maps.LatLng(x, y),
-            service.getDistanceMatrix(
-                    {
-                        origins: [origin],
-                        destinations: [destination],
-                        travelMode: google.maps.TravelMode.DRIVING,
-                        avoidHighways: false,
-                        avoidTolls: false
-                    },
-                    callback
-            );
-
-            function callback(response, status) {
-                if (status == "OK") {
-                    console.log("hallo");
-                    outputDest.innerHTML = response.rows[0].elements[0].distance.text;
-                } else {
-                    alert("Error: " + status);
-                }
-            }
-        }
-
-        function calcDuration(origin, destination, outputTime) {
-
-            var x, y;
-            origin = origin.split(';');
-            x = parseFloat(origin[0]);
-            y = parseFloat(origin[1]);
-            var service = new google.maps.DistanceMatrixService();
-            origin = new google.maps.LatLng(x, y),
-                    service.getDistanceMatrix(
-                            {
-                                origins: [origin],
-                                destinations: [destination],
-                                travelMode: google.maps.TravelMode.DRIVING,
-                                avoidHighways: false,
-                                avoidTolls: false
-                            },
-                            callback
-                    );
-
-            function callback(response, status) {
-                if (status == "OK") {
-                    console.log("hallo");
-                    outputTime.html(response.rows[0].elements[0].duration.text);
-                } else {
-                    alert("Error: " + status);
-                }
-            }
-        }
-
-        $(function () {
-            $(".distances li .badge ").each(function () {
-                console.log($(".duration")  );
-                calcDistance($(this).attr("data-coords"), "Leibnitz, Austria", this);
-            });
-            calcDuration($(".distances li.active .badge").attr("data-coords"), "Leibnitz, Austria", $(".duration"));
-            $(".distances li ").click(function(){
-                $(".distances li ").removeClass("active");
-                $(this).addClass("active");
-            });
-        });
-    </script>
+    <!-- change selection-->
+    <script type="text/javascript" src="resources/selection.js"></script>
 </head>
 
 <body>
@@ -137,7 +70,7 @@
                     <option data-coords="48.04;15.27">Pita Pan</option>
                     <option data-coords="49.04;15.27">Thai Tanic</option>
                     <option data-coords="50.04;15.27">Lord of the Wings</option>
-                    <option data-coords="51.04;15.27">Wok this way</option>
+                    <option data-coords="51.04;15.27">Wok this Way</option>
                     <option data-coords="52.04;15.27">Grillenium Falcon</option>
                 </select>
             </div>
@@ -156,31 +89,115 @@
                         <ul class="list-group distances">
                             <li class="list-group-item active">
                                 <span class="badge" data-coords="47.04;15.27">3 km</span>
-                                Bread Zeppelin
+                                <span class="text">Bread Zeppelin</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="badge" data-coords="48.04;15.27">14 km</span>
-                                Pita Pan
+                                <span class="text">Pita Pan</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="badge" data-coords="49.04;15.27">11 km</span>
-                                Thai Tanic
+                                <span class="text">Thai Tanic</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="badge" data-coords="50.04;15.27">22 km</span>
-                                Lord of the Wings
+                                <span class="text">Lord of the Wings</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="badge" data-coords="51.04;15.27">17 km</span>
-                                Wok this Way
+                                <span class="text">Wok this Way</span>
                             </li>
                             <li class="list-group-item">
                                 <span class="badge" data-coords="52.04;15.27">14 km</span>
-                                Grillenium Falcon
+                                <span class="text">Grillenium Falcon</span>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-8">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="resources/restaurants.png"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
+                                <h4 class="media-heading">Bread Zeppelin</h4>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo.
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="resources/restaurants.png"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
+                                <h4 class="media-heading">Pita Pan</h4>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo.
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="resources/restaurants.png"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
+                                <h4 class="media-heading">Thai Tanic</h4>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo.
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="resources/restaurants.png"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
+                                <h4 class="media-heading">Lord of the Wings</h4>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo.
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="resources/restaurants.png"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
+                                <h4 class="media-heading">Wok this Way</h4>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo.
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="resources/restaurants.png"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!-- TODO: always select the right restaurant -->
+                                <h4 class="media-heading">Grillenium Falcon</h4>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo.
+                            </div>
+                        </div>
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
@@ -204,7 +221,7 @@
             </div>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="products">
             <div class="panel-heading">
                 <!-- TODO: add restaurant name to title -->
                 <h3 class="panel-title">Products</h3>
@@ -216,11 +233,13 @@
                             <img src="http://placehold.it/350x200"/>
 
                             <div class="caption">
-                                <h3>Thumbnail label</h3>
+                                <h3>Product 1</h3>
 
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                     laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                    architecto beatae vitae dicta sunt explicabo.</p>
+                                    architecto beatae vitae dicta sunt explicabo.
+                                </p>
 
                                 <p>
                                     Price <span class="badge">12,-</span>
@@ -237,13 +256,13 @@
                             <img src="http://placehold.it/350x200"/>
 
                             <div class="caption">
-                                <h3>Thumbnail label</h3>
+                                <h3>Product 2</h3>
 
                                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                     laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
                                     architecto beatae vitae dicta sunt explicabo.</p>
 
-                                <p>Price <span class="badge">12,-</span> <a href="#" class="btn btn-default"
+                                <p>Price <span class="badge">13,-</span> <a href="#" class="btn btn-default"
                                                                             role="button" style="float: right"><span
                                         class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
                             </div>
@@ -255,7 +274,7 @@
                             <img src="http://placehold.it/350x200"/>
 
                             <div class="caption">
-                                <h3>Thumbnail label</h3>
+                                <h3>Product 3</h3>
 
                                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                     laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
@@ -263,11 +282,45 @@
 
                                 <p>Price <span class="badge">12,-</span> <a href="#" class="btn btn-default"
                                                                             role="button" style="float: right"><span
-                                        class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
+                                        class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Shopping Cart</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Product 1</td>
+                        <td>2</td>
+                        <td>24,-</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Product 2</td>
+                        <td>1</td>
+                        <td>13,-</td>
+                    </tr>
+                    <tr style="font-weight: bold">
+                        <td>Total</td>
+                        <td></td>
+                        <td></td>
+                        <td>37,-</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </form>
