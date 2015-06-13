@@ -7,3 +7,7 @@
 #submit {
     float: right;
 }
+
+.distances li {
+    cursor: pointer;
+}

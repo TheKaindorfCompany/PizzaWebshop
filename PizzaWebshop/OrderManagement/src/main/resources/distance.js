@@ -56,7 +56,11 @@ function calcDuration(origin, destination, outputTime) {
 
 $(function () {
     $(".distances li .badge ").each(function () {
-        calcDistance($(this).attr("data-coords"), "Leibnitz, Austria", this);
+        calcDistance($(this).attr("data-coords"), $('#address .text').text(), this);
     });
-    calcDuration($(".distances li.active .badge").attr("data-coords"), "Leibnitz, Austria", $(".duration"));
+    calcDuration($(".distances li.active .badge").attr("data-coords"), $('#address .text').text(), $(".duration"));
 });
+
+$(document).load(function () {
+    $('#restaurants').change();
+})

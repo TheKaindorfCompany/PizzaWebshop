@@ -18,10 +18,6 @@
     <!-- Custom Map Js -->
     <script type="text/javascript" src="resources/map.js"></script>
 
-    <!--Google Distance Matrix-->
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-
     <!-- Custom Css -->
     <link rel="stylesheet" href="resources/map.css"/>
 
@@ -54,6 +50,7 @@
                             <!-- TODO: insert address from db -->
                             795 Folsom Ave, Suite 600<br>
                             San Francisco, CA 94107<br>
+                            <span style="display:none" class="text">795 Folsom Ave, Suite 600 San Francisco, CA 94107</span>
                         </address>
                     </div>
                     <div class="col-md-6">
@@ -66,12 +63,12 @@
                 <label for="restaurants">Restaurant</label>
                 <select class="form-control" id="restaurants">
                     <!-- TODO: get data-coords from db -->
-                    <option data-coords="47.04;15.27">Bread Zeppelin</option>
-                    <option data-coords="48.04;15.27">Pita Pan</option>
-                    <option data-coords="49.04;15.27">Thai Tanic</option>
-                    <option data-coords="50.04;15.27">Lord of the Wings</option>
-                    <option data-coords="51.04;15.27">Wok this Way</option>
-                    <option data-coords="52.04;15.27">Grillenium Falcon</option>
+                    <option data-coords="33.026994;-96.839671">Bread Zeppelin</option>
+                    <option data-coords="1.283949;103.858846">Pita Pan</option>
+                    <option data-coords="38.908155;-77.032382">Thai Tanic</option>
+                    <option data-coords="-27.504370;153.099889">Lord of the Wings</option>
+                    <option data-coords="34.139366;-117.575128">Wok this Way</option>
+                    <option data-coords="36.067311;-94.165156">Grillenium Falcon</option>
                 </select>
             </div>
         </div>
@@ -88,27 +85,27 @@
                         <!-- TODO: calculate automatically via distance api -->
                         <ul class="list-group distances">
                             <li class="list-group-item active">
-                                <span class="badge" data-coords="47.04;15.27">3 km</span>
+                                <span class="badge" data-coords="33.026994;-96.839671">unknown</span>
                                 <span class="text">Bread Zeppelin</span>
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" data-coords="48.04;15.27">14 km</span>
+                                <span class="badge" data-coords="1.283949;103.858846">unknown</span>
                                 <span class="text">Pita Pan</span>
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" data-coords="49.04;15.27">11 km</span>
+                                <span class="badge" data-coords="38.908155;-77.032382">unknown</span>
                                 <span class="text">Thai Tanic</span>
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" data-coords="50.04;15.27">22 km</span>
+                                <span class="badge" data-coords="-27.504370;153.099889">unknown</span>
                                 <span class="text">Lord of the Wings</span>
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" data-coords="51.04;15.27">17 km</span>
+                                <span class="badge" data-coords="34.139366;-117.575128">unknown</span>
                                 <span class="text">Wok this Way</span>
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" data-coords="52.04;15.27">14 km</span>
+                                <span class="badge" data-coords="36.067311;-94.165156">unknown</span>
                                 <span class="text">Grillenium Falcon</span>
                             </li>
                         </ul>
@@ -214,7 +211,7 @@
                         </div>
                         <hr/>
                         <div class="well">The estimated delivery time from "Bread Zeppelin" to your location is <span
-                                class="badge duration">12 minutes</span>.
+                                class="badge duration">unknown</span>.
                         </div>
                     </div>
                 </div>
