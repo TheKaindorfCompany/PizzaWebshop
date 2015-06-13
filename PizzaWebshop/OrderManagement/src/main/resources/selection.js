@@ -2,7 +2,6 @@ $(function () {
     $(".distances li").click(function () {
         $(".distances li").removeClass("active");
         $(this).addClass("active");
-        console.log($('#restaurants option:contains("' + $(this).text() + '")'));
         $('#restaurants option:contains("' + $(this).children('.text').text() + '")').attr('selected', true);
         $('#restaurants option:contains("' + $(this).children('.text').text() + '")').change();
     });
@@ -10,7 +9,9 @@ $(function () {
     $('#restaurants').change(function () {
         $(".distances li").removeClass("active");
         $(".distances li:contains('" + $('#restaurants option:selected').text() + "')").addClass("active");
-        console.log($('#restaurants option:selected').text());
+        $(".media").css("display", "none");
+        console.log($(".media .media-heading:contains('" + $('#restaurants option:selected').text() + "')").parent(".media"));
+        $(".media .media-heading:contains('" + $('#restaurants option:selected').text() + "')").parent().parent().css("display", "inline");
     });
 
 });

@@ -18,10 +18,8 @@ function calcDistance(origin, destination, outputDest) {
     );
 
     function callback(response, status) {
-        if (status == "OK") {
+        if (status == "OK" && response.rows[0].elements[0].distance != null) {
             outputDest.innerHTML = response.rows[0].elements[0].distance.text;
-        } else {
-            alert("Error: " + status);
         }
     }
 }

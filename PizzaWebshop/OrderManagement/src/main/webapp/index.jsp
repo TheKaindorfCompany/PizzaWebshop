@@ -118,14 +118,13 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <!-- TODO: always select the right restaurant -->
                                 <h4 class="media-heading">Bread Zeppelin</h4>
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
                                 architecto beatae vitae dicta sunt explicabo.
                             </div>
                         </div>
-                        <div class="media">
+                        <div class="media" style="display: none">
                             <div class="media-left">
                                 <a href="#">
                                     <img class="media-object" src="resources/restaurants.png"/>
@@ -139,7 +138,7 @@
                                 architecto beatae vitae dicta sunt explicabo.
                             </div>
                         </div>
-                        <div class="media">
+                        <div class="media" style="display: none">
                             <div class="media-left">
                                 <a href="#">
                                     <img class="media-object" src="resources/restaurants.png"/>
@@ -153,7 +152,7 @@
                                 architecto beatae vitae dicta sunt explicabo.
                             </div>
                         </div>
-                        <div class="media">
+                        <div class="media" style="display: none">
                             <div class="media-left">
                                 <a href="#">
                                     <img class="media-object" src="resources/restaurants.png"/>
@@ -167,7 +166,7 @@
                                 architecto beatae vitae dicta sunt explicabo.
                             </div>
                         </div>
-                        <div class="media">
+                        <div class="media" style="display: none">
                             <div class="media-left">
                                 <a href="#">
                                     <img class="media-object" src="resources/restaurants.png"/>
@@ -181,7 +180,7 @@
                                 architecto beatae vitae dicta sunt explicabo.
                             </div>
                         </div>
-                        <div class="media">
+                        <div class="media" style="display: none">
                             <div class="media-left">
                                 <a href="#">
                                     <img class="media-object" src="resources/restaurants.png"/>
@@ -190,20 +189,6 @@
                             <div class="media-body">
                                 <!-- TODO: always select the right restaurant -->
                                 <h4 class="media-heading">Grillenium Falcon</h4>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                architecto beatae vitae dicta sunt explicabo.
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="resources/restaurants.png"/>
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <!-- TODO: always select the right restaurant -->
-                                <h4 class="media-heading">Bread Zeppelin</h4>
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
                                 architecto beatae vitae dicta sunt explicabo.

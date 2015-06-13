@@ -9,7 +9,6 @@ initialize = function () {
         lat: 47.05,
         lng: 15.27
     };
-    console.log($('#address .text').text());
     geocoder.geocode({'address': $('#address .text').text()}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             home = results[0].geometry.location;
