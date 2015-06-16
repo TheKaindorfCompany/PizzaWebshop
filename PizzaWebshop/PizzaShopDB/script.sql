@@ -1,3 +1,5 @@
+DROP SEQUENCE address_sequence;
+
 ALTER TABLE ingredients_in_product
 DROP CONSTRAINT ing_pro_PK;
 ALTER TABLE ingredients_in_product
@@ -235,4 +237,6 @@ INSERT INTO ingredients_in_product VALUES (3, 3, 3);
 INSERT INTO ingredients_in_product VALUES (3, 4, 3);
 
 
-CREATE SEQUENCE address_sequence START WITH 6 INCREMENT BY 1 NO CACHE;
+CREATE SEQUENCE address_sequence START WITH 6 INCREMENT BY 1 NOCACHE;
+
+commit;
