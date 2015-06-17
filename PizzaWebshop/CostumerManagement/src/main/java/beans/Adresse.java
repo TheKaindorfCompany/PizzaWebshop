@@ -5,38 +5,46 @@ package beans;
  */
 public class Adresse
 {
-    private String straße;
+
+    private String strasse;
     private String plz;
     private String ort;
 
-    public Adresse(String straße, String plz, String ort)
+    public Adresse(String strasse, String plz, String ort)
     {
-        this.straße = straße;
+        this.strasse = strasse;
         this.plz = plz;
         this.ort = ort;
     }
 
-    public String getOrt() {
+    public String getOrt()
+    {
         return ort;
     }
 
-    public void setOrt(String ort) {
+    public void setOrt(String ort)
+    {
         this.ort = ort;
     }
 
-    public String getPlz() {
+    public String getPlz()
+    {
         return plz;
     }
 
-    public void setPlz(String plz) {
+    public void setPlz(String plz)
+    {
         this.plz = plz;
     }
 
-    public String getStraße() {
-        return straße;
+    public String getStrasse()
+    {
+        return strasse;
     }
 
-    public void setStraße(String straße) {
-        this.straße = straße;
+    public void setStrasse(String strasse)
+    {
+        this.strasse = strasse;
     }
+
 }

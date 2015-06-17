@@ -9,30 +9,37 @@ import java.util.Queue;
  *
  * @author
  */
-public class CachedConnection {
+public class CachedConnection
+{
 
     private Queue<Statement> statQueue = new LinkedList<Statement>();
     private Connection con = null;
 
-    public CachedConnection(Connection con) {
+    public CachedConnection(Connection con)
+    {
         this.con = con;
     }
 
-    public Statement getStatement() throws Exception {
+    public Statement getStatement() throws Exception
+    {
 
-        if (con == null) {
+        if (con == null)
+        {
             throw new Exception("not connected");
         }
-        if (!statQueue.isEmpty()) {
+        if (!statQueue.isEmpty())
+        {
             return statQueue.poll();
         }
 
         return con.createStatement();
     }
 
-    public void releaseStatement(Statement stat) throws Exception {
+    public void releaseStatement(Statement stat) throws Exception
+    {
 
-        if (con == null) {
+        if (con == null)
+        {
             throw new Exception("not connected");
         }
         statQueue.offer(stat);

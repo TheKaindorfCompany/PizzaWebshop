@@ -24,9 +24,9 @@ import java.util.LinkedList;
  * @author Enis Lushtaku
  */
 @WebServlet(name = "AnmeldungServlet", urlPatterns =
-        {
-                "/AnmeldungServlet"
-        })
+{
+    "/AnmeldungServlet"
+})
 public class Anmeldung extends HttpServlet
 {
 
@@ -46,12 +46,12 @@ public class Anmeldung extends HttpServlet
         PrintWriter out = response.getWriter();
         try
         {
-            DBAccess access = new DBAccess();
-            LinkedList<Member> members = access.getMember();
-            String email;
-            String password;
-            if(request.getParameter("anmeldung")!=null)
+            if (request.getParameter("anmeldung") != null)
             {
+                DBAccess access = new DBAccess();
+                LinkedList<Member> members = access.getMember();
+                String email;
+                String password;
                 if (!(request.getParameter("email") == null && request.getParameter("password") == null))
                 {
                     email = request.getParameter("inputEmail");
@@ -63,7 +63,7 @@ public class Anmeldung extends HttpServlet
                     {
                         if (m.getPasswort().equals(password))
                         {
-                            response.sendRedirect(response.encodeRedirectURL("costumer.html"));
+                            response.sendRedirect(response.encodeRedirectURL("Costumer.java"));
                         } else
                         {
                             out.print("alert(\"Password ist falsch! Bitte erneut eingeben\");");
@@ -74,34 +74,34 @@ public class Anmeldung extends HttpServlet
                     }
                 }
             }
-            out.println("<!DOCTYPE html>\n" +
-                    "<html>\n" +
-                    "<head lang=\"en\">\n" +
-                    "    <meta charset=\"UTF-8\">\n" +
-                    "    <title></title>\n" +
-                    "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\n" +
-                    "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css\">\n" +
-                    "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n" +
-                    "</head>\n" +
-                    "<body>\n" +
-                    "<div class=\"container\">\n" +
-                    "    <form class=\"form-signin\" ACTION=\"GET\">\n" +
-                    "        <h2 class=\"form-signin-heading\">Bitte einloggen</h2>\n" +
-                    "        <label for=\"inputEmail\" class=\"sr-only\">Email-Adresse</label>\n" +
-                    "        <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n" +
-                    "        <label for=\"inputPassword\" class=\"sr-only\">Passwort</label>\n" +
-                    "        <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n" +
-                    "        <div class=\"checkbox\">\n" +
-                    "            <label>\n" +
-                    "                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n" +
-                    "            </label>\n" +
-                    "        </div>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"anmeldung\">Anmeldung</button>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"registrierung\">Registrierung</button>\n" +
-                    "    </form>\n" +
-                    "</div>\n" +
-                    "</body>\n" +
-                    "</html>");
+            out.println("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "<head lang=\"en\">\n"
+                    + "    <meta charset=\"UTF-8\">\n"
+                    + "    <title></title>\n"
+                    + "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\n"
+                    + "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css\">\n"
+                    + "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<div class=\"container\">\n"
+                    + "    <form class=\"form-signin\" ACTION=\"GET\">\n"
+                    + "        <h2 class=\"form-signin-heading\">Bitte einloggen</h2>\n"
+                    + "        <label for=\"inputEmail\" class=\"sr-only\">Email-Adresse</label>\n"
+                    + "        <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n"
+                    + "        <label for=\"inputPassword\" class=\"sr-only\">Passwort</label>\n"
+                    + "        <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n"
+                    + "        <div class=\"checkbox\">\n"
+                    + "            <label>\n"
+                    + "                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n"
+                    + "            </label>\n"
+                    + "        </div>\n"
+                    + "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"anmeldung\">Anmeldung</button>\n"
+                    + "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"registrierung\">Registrierung</button>\n"
+                    + "    </form>\n"
+                    + "</div>\n"
+                    + "</body>\n"
+                    + "</html>");
         } catch (ClassNotFoundException e)
         {
             e.printStackTrace();

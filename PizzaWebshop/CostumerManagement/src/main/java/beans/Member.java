@@ -5,28 +5,34 @@ package beans;
  */
 public class Member extends Person
 {
+
     private String email;
     private String passwort;
 
-    public Member(String vorname, String nachname, Adresse adresse, String email, String passwort) {
+    public Member(String vorname, String nachname, Adresse adresse, String email, String passwort)
+    {
         super(vorname, nachname, adresse);
         this.email = email;
         this.passwort = passwort;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public String getPasswort() {
+    public String getPasswort()
+    {
         return passwort;
     }
 
-    public void setPasswort(String passwort) {
+    public void setPasswort(String passwort)
+    {
         this.passwort = passwort;
     }
 }

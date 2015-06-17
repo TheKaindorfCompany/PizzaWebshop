@@ -14,7 +14,8 @@ import java.util.Properties;
  *
  * @author
  */
-public final class DataBase {
+public final class DataBase
+{
 
     private String URL;
     private String USER;
@@ -25,21 +26,25 @@ public final class DataBase {
     private CachedConnection cc;
     private static DataBase INSTANCE = null;
 
-    private DataBase() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
+    private DataBase() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException
+    {
         loadPorperties();
         Class.forName(DRIVER);
         connect();
     }
 
-    public static DataBase getInstance() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
-        if (INSTANCE == null) {
+    public static DataBase getInstance() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException
+    {
+        if (INSTANCE == null)
+        {
             INSTANCE = new DataBase();
         }
 
         return INSTANCE;
     }
 
-    private void loadPorperties() throws FileNotFoundException, IOException {
+    private void loadPorperties() throws FileNotFoundException, IOException
+    {
         Properties props = new Properties();
         FileInputStream fis = new FileInputStream(new File(propertyFile));
         props.load(fis);
@@ -49,30 +54,38 @@ public final class DataBase {
         DRIVER = props.getProperty("DRIVER");
     }
 
-    public Statement getStatement() throws Exception {
-        if (cc != null && con != null) {
+    public Statement getStatement() throws Exception
+    {
+        if (cc != null && con != null)
+        {
             return cc.getStatement();
         }
         throw new Exception("not connected to DB prisondb");
     }
 
-    public void releaseStatement(Statement stat) throws Exception {
-        if (cc != null && con != null) {
+    public void releaseStatement(Statement stat) throws Exception
+    {
+        if (cc != null && con != null)
+        {
             cc.releaseStatement(stat);
-        } else {
+        } else
+        {
             throw new Exception("not connected to DB prisondb");
         }
     }
 
-    public Connection getCon() {
+    public Connection getCon()
+    {
         return con;
     }
 
-    public void setCon(Connection con) {
+    public void setCon(Connection con)
+    {
         this.con = con;
     }
 
-    public void connect() throws SQLException {
+    public void connect() throws SQLException
+    {
         con = DriverManager.getConnection(URL, USER, PASSWORD);
         cc = new CachedConnection(con);
     }
