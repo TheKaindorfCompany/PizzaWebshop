@@ -52,7 +52,7 @@ public class Anmeldung extends HttpServlet
             String password;
             if(request.getParameter("anmeldung")!=null)
             {
-                if (!(request.getParameter("inputEmail") == null && request.getParameter("inputPassword") == null))
+                if (!(request.getParameter("email") == null && request.getParameter("password") == null))
                 {
                     email = request.getParameter("inputEmail");
                     password = request.getParameter("inputPassword");
@@ -74,7 +74,6 @@ public class Anmeldung extends HttpServlet
                     }
                 }
             }
-
             out.println("<!DOCTYPE html>\n" +
                     "<html>\n" +
                     "<head lang=\"en\">\n" +
@@ -89,9 +88,9 @@ public class Anmeldung extends HttpServlet
                     "    <form class=\"form-signin\" ACTION=\"GET\">\n" +
                     "        <h2 class=\"form-signin-heading\">Bitte einloggen</h2>\n" +
                     "        <label for=\"inputEmail\" class=\"sr-only\">Email-Adresse</label>\n" +
-                    "        <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n" +
+                    "        <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n" +
                     "        <label for=\"inputPassword\" class=\"sr-only\">Passwort</label>\n" +
-                    "        <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n" +
+                    "        <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n" +
                     "        <div class=\"checkbox\">\n" +
                     "            <label>\n" +
                     "                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n" +

@@ -18,9 +18,9 @@ import java.io.PrintWriter;
  * @author Enis Lushtaku
  */
 @WebServlet(name = "Costumer", urlPatterns =
-        {
-                "/Costumer"
-        })
+{
+    "/Costumer"
+})
 public class Costumer extends HttpServlet
 {
 
@@ -40,42 +40,40 @@ public class Costumer extends HttpServlet
         PrintWriter out = response.getWriter();
         try
         {
-            if(request.getParameter("bBestellen")!=null)
+            if (request.getParameter("bBestellen") != null)
             {
-                response.sendRedirect(response.encodeRedirectURL("index.jsp")); //Seite von Ordermanagement wird geöffnet.
+                response.sendRedirect(response.encodeRedirectURL("index.jsp")); //Seite von Ordermanagement wird ge�ffnet.
             }
-            if(request.getParameter("bMeineBestellungen")!=null)
+            if (request.getParameter("bMeineBestellungen") != null)
             {
-                out.print("alert(\" Funktion nicht vorhanden ERROR0815:Funktion nicht ausimplementiert!\")");
             }
-            if(request.getParameter("bLogout")!=null)
+            if (request.getParameter("bLogout") != null)
             {
-                response.sendRedirect(response.encodeRedirectURL("anmeldung.html")); //Anmeldeseite wird wieder geöffnet
+                response.sendRedirect(response.encodeRedirectURL("anmeldung.java")); //Anmeldeseite wird wieder geöffnet
             }
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>\n" +
-                    "<html>\n" +
-                    "<head lang=\"en\">\n" +
-                    "    <meta charset=\"UTF-8\">\n" +
-                    "    <title></title>\n" +
-                    "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\n" +
-                    "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css\">\n" +
-                    "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n" +
-                    "</head>\n" +
-                    "<body>\n" +
-                    "\n" +
-                    "<div class=\"container\">\n" +
-                    "\n" +
-                    "    <form class=\"form-signin\" action=\"get\">\n" +
-                    "        <h2 class=\"form-signin-heading\">Willkommen auf der Userpage</h2>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bBestellen\">Bestellen</button>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bMeineBestellungen\">Meine Bestellungen</button>\n" +
-                    "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bLogout\">Logout und zurück</button>\n" +
-                    "    </form>\n" +
-                    "\n" +
-                    "</div>\n" +
-                    "</body>\n" +
-                    "</html>");
+            out.println("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "<head lang=\"en\">\n"
+                    + "    <meta charset=\"UTF-8\">\n"
+                    + "    <title></title>\n"
+                    + "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\n"
+                    + "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css\">\n"
+                    + "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "\n"
+                    + "<div class=\"container\">\n"
+                    + "\n"
+                    + "    <form class=\"form-signin\" action=\"get\">\n"
+                    + "        <h2 class=\"form-signin-heading\">Willkommen auf der Userpage</h2>\n"
+                    + "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bBestellen\">Bestellen</button>\n"
+                    + "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bMeineBestellungen\">Meine Bestellungen</button>\n"
+                    + "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" name=\"bLogout\">Logout und zurück</button>\n"
+                    + "    </form>\n"
+                    + "\n"
+                    + "</div>\n"
+                    + "</body>\n"
+                    + "</html>");
         } finally
         {
             out.close();

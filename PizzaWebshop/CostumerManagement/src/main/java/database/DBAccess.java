@@ -7,7 +7,6 @@ import beans.Adresse;
 import beans.Member;
 import beans.Restaurant;
 import beans.RestaurantOwner;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
