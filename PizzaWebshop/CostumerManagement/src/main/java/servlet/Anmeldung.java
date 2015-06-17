@@ -23,9 +23,9 @@ import java.util.LinkedList;
  *
  * @author Enis Lushtaku
  */
-@WebServlet(name = "AnmeldungServlet", urlPatterns =
+@WebServlet(name = "Anmeldung", urlPatterns =
 {
-    "/AnmeldungServlet"
+    "/Anmeldung"
 })
 public class Anmeldung extends HttpServlet
 {
