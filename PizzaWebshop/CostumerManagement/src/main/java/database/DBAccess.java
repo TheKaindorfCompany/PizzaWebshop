@@ -47,7 +47,6 @@ public class DBAccess
         Statement stat = db.getStatement();
         String sqlString = "SELECT p.vorname, p.nachname, m.strasse, m.plz, m.ort, m.email, m.password "
                 + "FROM member m INNER JOIN person p USING(pID)";
-
         ResultSet rs = stat.executeQuery(sqlString);
         rs.next();
         do
@@ -64,7 +63,6 @@ public class DBAccess
         String sqlString = "SELECT r.strasse, r.plz, r.ort, r.laengengrad, r.breitengrad, r.name "
                 + "FROM restaurants r INNER JOIN owner o USING(oID) "
                 + "WHERE o.vorname =" + vorname + " AND o.nachname =" + nachname;
-
         ResultSet rs = stat.executeQuery(sqlString);
         rs.next();
         do

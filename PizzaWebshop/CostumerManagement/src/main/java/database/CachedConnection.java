@@ -22,7 +22,6 @@ public class CachedConnection
 
     public Statement getStatement() throws Exception
     {
-
         if (con == null)
         {
             throw new Exception("not connected");
@@ -31,13 +30,11 @@ public class CachedConnection
         {
             return statQueue.poll();
         }
-
         return con.createStatement();
     }
 
     public void releaseStatement(Statement stat) throws Exception
     {
-
         if (con == null)
         {
             throw new Exception("not connected");
