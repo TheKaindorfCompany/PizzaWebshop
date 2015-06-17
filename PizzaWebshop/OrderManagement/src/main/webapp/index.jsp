@@ -1,6 +1,6 @@
+<%@ page import="beans.Product" %>
 <%@ page import="beans.Restaurant" %>
 <%@ page import="bl.DataCollection" %>
-<%@ page import="beans.Product" %>
 <html>
 <head>
     <!-- Latest compiled and minified CSS -->
@@ -146,7 +146,8 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading"><%=restaurant.getName()%></h4>
+                                <h4 class="media-heading"><%=restaurant.getName()%>
+                                </h4>
                                 <%=restaurant.getDescription()%>
                             </div>
                         </div>
@@ -155,8 +156,9 @@
                         %>
                         <hr/>
                         <div class="well">The estimated delivery time from "<span
-                                class="restaurant"><%=DataCollection.getRestaurants().get(0).getName()%></span>" to your location is <span
-                                class="badge duration">unknown</span>.
+                                class="restaurant"><%=DataCollection.getRestaurants().get(0).getName()%></span>" to your
+                            location is <span
+                                    class="badge duration">unknown</span>.
                         </div>
                     </div>
                 </div>
@@ -170,18 +172,21 @@
             </div>
             <div class="panel-body">
                 <%
-                    for(Restaurant restaurant : DataCollection.getRestaurants()) {
+                    for (Restaurant restaurant : DataCollection.getRestaurants()) {
                         int i = 0;
-                        for(Product product : restaurant.getProducts()) {
-                            if(i%3 == 0) {
-                                out.print("<div class=\"row\">");
-                            }
+                        if (restaurant.getName().equals("Bread Zeppelin")) {
+                            for (Product product : restaurant.getProducts()) {
+                                if (i % 3 == 0) {
+                                    out.print("<div class=\"row\">");
+                                }
                 %>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="<%=product.getImage()%>"/>
+                        <img style="max-width: 330px" src="<%=product.getImage()%>"/>
+
                         <div class="caption">
-                            <h3><%=product.getName()%></h3>
+                            <h3><%=product.getName()%>
+                            </h3>
 
                             <p>
                                 <%=product.getDescription()%>
@@ -197,10 +202,11 @@
                     </div>
                 </div>
                 <%
-                            if((i+1)%3 == 0) {
-                                out.print("</div>");
-                            }
+                                if ((i + 1) % 3 == 0 || restaurant.getProducts().indexOf(restaurant.getProducts().getLast()) == restaurant.getProducts().indexOf(product)) {
+                                    out.print("</div>");
+                                }
                                 i++;
+                            }
                         }
                     }
                 %>
