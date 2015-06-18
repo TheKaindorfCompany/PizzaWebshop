@@ -99,6 +99,17 @@ public class IngredientModel {
         newList = dba.getIngredients(restaurantName);
         return newList;
     }
+
+    public int changeAmountOfElement(int id, int amount) {
+        Ingredient ing = this.ingredientList.get(id);
+        if (ing.getStk() + amount >= 0) {
+            ing.setStk(ing.getStk() + amount);
+        } else {
+            ing.setStk(0);
+        }
+        this.ingredientList.set(id, ing);
+        return this.ingredientList.get(id).getStk() + amount;
+    }
 }
 
 

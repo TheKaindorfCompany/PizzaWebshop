@@ -4,6 +4,7 @@ import bl.IngredientModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 
 /**

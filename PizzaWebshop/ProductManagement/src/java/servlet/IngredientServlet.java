@@ -19,6 +19,7 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
 
         this.m_IngredientList.addIngredient("", "Salami", 12, 1.4f);
         this.m_IngredientList.addIngredient("", "Mozarella", 12, 5);
+        this.m_IngredientList.addIngredient("", "Pizzateig", 1, 5);
     }
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
@@ -64,15 +65,32 @@ public class IngredientServlet extends javax.servlet.http.HttpServlet {
             }
             response.getWriter().write(output);
         }
+        else if (aufgabe == 5) {
+            //buy/consume products
+            int id = Integer.parseInt(request.getParameter("id"));
+            int amount = Integer.parseInt(request.getParameter("amount"));
+            int neuStueck = this.m_IngredientList.changeAmountOfElement(id, amount);
+            if (amount > 0) {
+                out.write("<div class=\"alert alert-success\" id='divSuccessAnzeige' role=\"alert\">Amount was increased</div>");
+            }
+            else {
+                    out.write("<div class=\"alert alert-success\" id='divSuccessAnzeige' role=\"alert\">Amount was decreased</div>");
+            }
+            this.onGetIngredients(out);
+        }
 
     }
 
     private void onGetIngredients(PrintWriter out) {
         String output = "<tr><th>Name</th><th>Price</th><th>Amount</th></tr>";
         for (int i = 0; i < this.m_IngredientList.countElements(); i++) {
+            String style = "";
             try {
+                if (this.m_IngredientList.getCurrentIngredient(i).getStk() < 5) {
+                    style= "style='background-color:red'";
+                }
                 if (this.m_IngredientList.getCurrentIngredient(i).getName() != "")
-                    output += "<tr><td><input type='text' name='"+this.m_IngredientList.getCurrentIngredient(i).getName() + "' " +
+                    output += "<tr "+style + "><td><input type='text' name='"+this.m_IngredientList.getCurrentIngredient(i).getName() + "' " +
                             "readonly value='"+this.m_IngredientList.getCurrentIngredient(i).getName()+"'" +
                             "id='inp "+i+" Name'></td>";
                     output += "<td><input type='text' readonly value='"+this.m_IngredientList.getCurrentIngredient(i).getPrice()+"'" +

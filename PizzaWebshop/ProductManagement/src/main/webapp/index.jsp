@@ -74,8 +74,21 @@
                 $('#divStatus').html('<div class="alert alert-success" id="divSuccessAnzeige" role="alert">Erfolgreich upgedatet</div>');
                 setTimeout(function()
                 {$('#divSuccessAnzeige').remove()}
-                        , 5000);
+                        , 4000);
                 $('#btnTest').html("Bearbeiten");
+            });
+        }
+
+        function erhoeheMenge(id) {
+            var newAmount = window.prompt('How many new ingredients did you buy/consumed (- for fewer ingredients)?');
+            var url = "IngredientServlet?art=5&id="+id+"&amount="+newAmount;
+
+            $.get(url, function(data, status) {
+               $('#tableIngredientList').html(data);
+
+                setTimeout(function()
+                        {$('#divSuccessAnzeige').remove()}
+                        , 4000);
             });
         }
     </script>
@@ -100,14 +113,7 @@
             <td>
                 <button class="btn" onclick="getIngredients()">Show Ingredients</button>
             </td>
-            <td>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for Restaurant" name="srch-term" id="srch-term">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
-                </div>
-            </td>
+
             <td>
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collAddProd" aria-expanded="false" aria-controls="collapseExample">
                     Add Ingredient
