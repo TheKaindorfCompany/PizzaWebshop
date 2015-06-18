@@ -70,12 +70,12 @@
                         }
                     %>
                     <%--
-                    <option data-coords="33.026994;-96.839671">Bread Zeppelin</option>
-                    <option data-coords="37.806619;-122.406102">Frying Nemo</option>
-                    <option data-coords="38.908155;-77.032382">Thai Tanic</option>
-                    <option data-coords="-27.504370;153.099889">Lord of the Wings</option>
-                    <option data-coords="34.139366;-117.575128">Wok this Way</option>
-                    <option data-coords="36.067311;-94.165156">Grillenium Falcon</option>
+                        <option data-coords="33.026994;-96.839671">Bread Zeppelin</option>
+                        <option data-coords="37.806619;-122.406102">Frying Nemo</option>
+                        <option data-coords="38.908155;-77.032382">Thai Tanic</option>
+                        <option data-coords="-27.504370;153.099889">Lord of the Wings</option>
+                        <option data-coords="34.139366;-117.575128">Wok this Way</option>
+                        <option data-coords="36.067311;-94.165156">Grillenium Falcon</option>
                     --%>
                 </select>
             </div>
@@ -139,7 +139,8 @@
                         <%
                             for (Restaurant restaurant : DataCollection.getRestaurants()) {
                         %>
-                        <div class="media" <%=(DataCollection.getRestaurants().indexOf(restaurant) == 0) ? "" : restaurant.getImage()%>>
+                        <div class="media"
+                             style="<%=(DataCollection.getRestaurants().indexOf(restaurant) == 0) ? "" : "display:none;"%>">
                             <div class="media-left">
                                 <a href="#">
                                     <img style="width:100px" class="media-object" src="<%=restaurant.getImage()%>"/>
@@ -174,18 +175,18 @@
                 <%
                     for (Restaurant restaurant : DataCollection.getRestaurants()) {
                         int i = 0;
-                        if (restaurant.getName().equals("Bread Zeppelin")) {
-                            for (Product product : restaurant.getProducts()) {
-                                if (i % 3 == 0) {
-                                    out.print("<div class=\"row\">");
-                                }
+
+                        for (Product product : restaurant.getProducts()) {
+                            if (i % 3 == 0) {
+                                out.print("<div class=\"product row " + restaurant.getId() + "\" " + ((restaurant.getName().equals("Bread Zeppelin")) ? "" : "style=\"display:none\"") + ">");
+                            }
                 %>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img style="max-width: 330px" src="<%=product.getImage()%>"/>
+                        <img style="width: 330px" src="<%=product.getImage()%>"/>
 
                         <div class="caption">
-                            <h3><%=product.getName()%>
+                            <h3 class="name"><%=product.getName()%>
                             </h3>
 
                             <p>
@@ -193,8 +194,8 @@
                             </p>
 
                             <p>
-                                Price <span class="badge"><%=product.getPrice()%>,-</span>
-                                <a href="#" class="btn btn-default" role="button" style="float: right">
+                                Price <span class="badge price"><%=product.getPrice()%> $</span>
+                                <a class="btn btn-default buy-product" role="button" style="float: right">
                                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                 </a>
                             </p>
@@ -202,12 +203,12 @@
                     </div>
                 </div>
                 <%
-                                if ((i + 1) % 3 == 0 || restaurant.getProducts().indexOf(restaurant.getProducts().getLast()) == restaurant.getProducts().indexOf(product)) {
-                                    out.print("</div>");
-                                }
-                                i++;
+                            if ((i + 1) % 3 == 0 || restaurant.getProducts().indexOf(restaurant.getProducts().getLast()) == restaurant.getProducts().indexOf(product)) {
+                                out.print("</div>");
                             }
+                            i++;
                         }
+
                     }
                 %>
                 <%--
@@ -279,30 +280,18 @@
                 <h3 class="panel-title">Shopping Cart</h3>
             </div>
             <div class="panel-body">
-                <table class="table">
-                    <tr>
+                <table class="table cart">
+                    <tr class="head">
                         <th>#</th>
                         <th>Name</th>
                         <th>Number</th>
                         <th>Price</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Product 1</td>
-                        <td>2</td>
-                        <td>24,-</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Product 2</td>
-                        <td>1</td>
-                        <td>13,-</td>
-                    </tr>
-                    <tr style="font-weight: bold">
+                    <tr class="total" style="font-weight: bold">
                         <td>Total</td>
                         <td></td>
                         <td></td>
-                        <td>37,-</td>
+                        <td class="price"></td>
                     </tr>
                 </table>
             </div>

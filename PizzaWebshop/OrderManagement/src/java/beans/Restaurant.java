@@ -1,6 +1,5 @@
 package beans;
 
-import javax.swing.*;
 import java.util.LinkedList;
 
 public class Restaurant {
@@ -16,7 +15,7 @@ public class Restaurant {
         Lng = lng;
         this.description = description;
         this.image = image;
-        for(Product product : products) {
+        for (Product product : products) {
             this.products.add(product);
         }
     }
@@ -43,5 +42,9 @@ public class Restaurant {
 
     public LinkedList<Product> getProducts() {
         return products;
+    }
+
+    public String getId() {
+        return name.trim().replace(" ", "");
     }
 }
